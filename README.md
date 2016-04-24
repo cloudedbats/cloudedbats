@@ -1,16 +1,16 @@
 # CloudedBats - free software for bat monitoring
 
-CloudedBats is a hobby project where I want to check if it is possible, on a spare time basis, to develop some code that covers the whole chain from capturing bat sounds to publishing the bat monitoring results in the cloud for free download.
+CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for free download.
 
-Now I have learned some Raspberry Pi basics and can use a high quality ultrasonic microphone to record bat sounds. The recording unit is placed outside and can be controlled from any unit (computers, smartphones, etc.) connected to my local wireless network. Next step is to learn more about DSP, Digital Signal Processing, to remove empty parts from the sound files and to store them in a more compact way. After that I will try to learn about how to extract the sound components to do some analysis based on start and stop frequencies, signal duration, interval, peak frequencies etc. (this is a real challenge since I have no idea at all how to do it). 
+So far I have learned some Raspberry Pi basics and can use a high quality ultrasonic microphone to record bat sounds. The recording unit is placed outside and can be controlled from any unit (computers, smartphones, etc.) connected to my local wireless network. Next step is to learn more about DSP, Digital Signal Processing, to remove empty parts from the sound files and to store them in a more compact way. After that I will try to learn how to extract the sound components to do some analysis based on start and stop frequencies, signal duration, interval, peak frequencies etc. (This is a real challenge since I have no idea at all how to do it). 
 
-I'm also interested in to figure out what kind of surveys can be done if you can set up 10 - 30 autonomous recording units connected via internet and recording data for the whole season. Computers can not replace a human equipped with a heterodyne in the same way that binoculars still are the birdwatchers best tool, but computers can do some boring and time consuming tasks to help the bat workers and researchers. 
+I'm also interested in figuring out what kind of surveys can be done if you can set up 10 - 30 autonomous recording units connected via the internet and record data for the whole season. Computers can not replace a human equipped with a heterodyne in the same way that binoculars still are the birdwatchers best tool, but computers can do some boring and time consuming tasks to help the bat workers and researchers. 
 
 But it's just a spare time project and I will continue as long as I learn a lot and think it's fun. After that, or when you think my progress is too slow, you are free to fork the code and continue the work since it's all open and free...
 
 ## WURB - Wireless Ultrasonic Recorder for Bats
 
-All kind of software must be deployed on some hardware. In this case the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency should be above 300 kHz, but for backyard monitoring 192 kHz will work for most of the bats.
+All kind of software must be deployed on some hardware. In this case the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not very expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency should be above 300 kHz, but for backyard monitoring 192 kHz will work for most of the bats.
 
 ![WURB-A001](images/WURB-A001-web.jpg?raw=true  "WURB - Wireless Ultrasonic Recorder for Bats")
 Image: CloudedBats.org / [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
@@ -27,7 +27,7 @@ The WURB contains a web server and is connected to a local network via WiFi. The
 
 #### Power consumption and disk space needed. Empirical test.
 
-With the setup above the WURB is able to operate for about 2.5 hours. A rough estimate gives 5 W (1 A at 5 V) in average. A little bit more during startup.
+With the setup above the WURB is able to operate for about 2.5 hours. A rough estimate gives 5 W (1 A at 5 V) in average. A little bit more power is needed  during startup.
 
 Continuous full spectrum recordings at 384 kHz - 16 bits - mono results in files of this size:
 - 10 sec: 7.7 MB
@@ -37,12 +37,12 @@ Continuous full spectrum recordings at 384 kHz - 16 bits - mono results in files
 #### Issues 
 There are some issues when recording sound files. 
 Sometimes the signal became completely silent and I think it's related to when the computer is busy. There is also some very short, full frequency, disturbing sounds where I have no idea where the source is. Mobile chargers may produce some high frequency signals. 
-Check the  issue tracker for [CloudedBats] (http://cloudedbats.org) for more information. 
+Check the issue tracker for [CloudedBats] (http://cloudedbats.org) for more information. 
 
 ## Resouces
 
 #### [http://cloudedbats.org] (http://cloudedbats.org)
-This is the software project placed on GitHub where I publish stable versions and documentation for the software. The code is based on Python 2.7 and the web framework [Django](https://www.djangoproject.com). At the moment I use Ubuntu for development and Raspbian for deployment, but the code should be possible to run on Windows and Mac too.
+This is the software project placed on GitHub where I publish stable versions and documentation for the software. The code is based on Python 2.7 and the web framework [Django](https://www.djangoproject.com). At the moment I’m using Ubuntu for development and Raspbian for deployment, but the code should be possible to run on Windows and Mac too.
 I'm planning for some Wiki-pages that describes the software design and how to set up the development environment.
 
 #### [https://github.com/arnoldandreasson/cloudedbats] (https://github.com/arnoldandreasson/cloudedbats)
@@ -61,4 +61,3 @@ CloudedBats is not about *clouds* of bats, nor funny patterned animals like the 
 It's more about using *cloud* related technology to make bat monitoring more accessible. 
 
 But all living species, including humans and bats, should in some sense be *clouded* since we are in the beginning of the new epoch of [Anthropocene] (https://en.wikipedia.org/wiki/Anthropocene). 
-
