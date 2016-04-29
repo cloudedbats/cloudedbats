@@ -20,10 +20,10 @@ The image above is my first WURB. The setup is as follows:
 - Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.] (http://batsound.se/?p=125)
 - Powerbank. 2200 mAh, in/out: 5V, 1A.
 - USB memory 32 GB for recorded sound files (wav-files).
-- Micro SD card with Debian Jessie Lite and the CloudedBats software.
+- Micro SD card with Raspbian Jessie Lite and the CloudedBats software.
 - Raspberry Pi Case and some Velcro to keep the microphone in place. 
 
-The WURB contains a web server and is connected to a local network via WiFi. The WURB can be controlled from any device in the local network containing a web browser. For security reasons it is not recommended to open up the local network for external access to the WURB, but it is possible to do that if you can handle the security parts. FileZilla, for example, can be used to access the recorded sound files via Internet.
+The WURB contains a web server and is connected to a local network via WiFi. The WURB can be controlled from any device in the local network containing a web browser. For security reasons it is not recommended to open up the local network for external access to the WURB, but it is possible to do that if you can handle the security parts. FileZilla, for example, can be used to access the recorded sound files via the Internet.
 
 #### Power consumption and disk space needed. Empirical test.
 
@@ -36,7 +36,7 @@ Continuous full spectrum recordings at 384 kHz - 16 bits - mono results in files
 
 #### Issues 
 There are some issues when recording sound files. 
-Sometimes the signal became completely silent and I think it's related to when the computer is busy. There is also some very short, full frequency, disturbing sounds where I have no idea where the source is. Mobile chargers may produce some high frequency signals. 
+Sometimes the signal became completely silent and I think it's related to when the computer is busy. There is also some very short, full frequency, disturbing sounds where I have no idea where the source is. Mobile chargers may produce some high frequency signals when they are used instead of the PowerBank. 
 Check the issue tracker for [CloudedBats] (http://cloudedbats.org) for more information. 
 
 ## Resouces
@@ -50,14 +50,21 @@ This is where you can find the latest development version of the software. Versi
 
 #### [http://backyardbats.org] (http://backyardbats.org)
 Points to a GitHub repository under CloudedBats. This is where I put Raspberry Pi related stuff used to set up a WURB, Wireless Ultrasonic Recorder for Bats, unit. I'm currently working on a Wiki-page containing all I know about the topic. 
+
+- [Wiki: Raspberry Pi installation] (https://github.com/cloudedbats/backyardbats/wiki/Raspberry-Pi-installation)
+
 In the future I will use the backyardbats domain as a top domain for a web page containing near-real-time information from my WURB:s. 
 
 
 ## About the name *CloudedBats*
 
-CloudedBats is not about *clouds* of bats, nor funny patterned animals like the cute 
+CloudedBats is not about [*clouds* of bats] (https://www.google.se/search?q=clouds+of+bats), nor funny patterned animals like the cute 
 [*clouded* leopard] (https://en.wikipedia.org/wiki/Clouded_leopard). 
 
 It's more about using *cloud* related technology to make bat monitoring more accessible. 
 
 But all living species, including humans and bats, should in some sense be *clouded* since we are in the beginning of the new epoch of [Anthropocene] (https://en.wikipedia.org/wiki/Anthropocene). 
+
+## Contact
+
+info@cloudedbats.org
