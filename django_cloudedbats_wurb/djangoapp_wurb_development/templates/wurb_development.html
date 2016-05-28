@@ -1,0 +1,45 @@
+{% extends "web_doc_base.html" %}
+
+{% load static %}
+
+{% block doc-content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Development commands (Raspberry Pi only)</h2>
+        </div>
+        <div class="panel-body">
+			<p> Commands to be used during software development.
+			</p>
+	        <p>
+				<a class="btn btn-default" 
+					href="/development/wurb_shutdown"> WURB: Shutdown
+				</a>
+			</p>
+			<p>
+				<a class="btn btn-default" 
+					href="/development/wurb_reboot"> WURB: Restart
+				</a>
+			</p>
+			<p>
+				<a class="btn btn-default" 
+					href="/development/wurb_wifi_off"> WURB: Turn WiFi off
+				</a>
+			</p>
+			<p>
+				<a class="btn btn-default" 
+					href="/development/wurb_mount_usb"> WURB: Mount USB memory
+				</a>
+				<a class="btn btn-default" 
+					href="/development/wurb_unmount_usb"> WURB: Unmount USB memory
+				</a>
+			</p>
+			<p>
+				<a class="btn btn-default" 
+					href="/development/wurb_update_code_and_restart"> WURB: Update CloudedBats software
+				</a>
+			</p>
+        </div>
+    </div>
+
+{% endblock doc-content%}

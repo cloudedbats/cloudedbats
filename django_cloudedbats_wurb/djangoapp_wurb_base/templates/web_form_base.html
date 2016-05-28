@@ -1,0 +1,18 @@
+{% extends "web_base.html" %}
+
+{% block standard-alerts %}
+    <!-- Alert alternatives: alert-success, alert-info, alert-warning, alert-danger -->
+    {% if error_message %}
+	    <div class="alert alert-danger">
+	        <strong><i>{{ error_message }}</i></strong>
+	    </div>
+    {% elif form.errors %}
+	    <div class="alert alert-warning">
+	        <strong>Sorry, something went wrong.</strong> Please correct the error(s) below and try to submit the form again.
+	    </div>
+    {% else %}
+	    <div class="alert alert-info">
+	        Note: You should be a registered administrator to execute this command.
+	    </div>
+    {% endif %}
+{% endblock standard-alerts %}

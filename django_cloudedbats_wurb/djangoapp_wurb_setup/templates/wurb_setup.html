@@ -1,0 +1,34 @@
+{% extends "web_base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">WURB setup</h2>
+        </div>
+        <div class="panel-body">
+            <form class="custom-form" enctype="multipart/form-data" method="post" action="{{ dataset.id }}">
+            	{% csrf_token %}
+	    
+			    {% if error_message %}
+				    <div class="alert alert-danger">
+				        <strong><i>{{ error_message }}</i></strong>
+				    </div>
+			    {% elif form.errors %}
+				    <div class="alert alert-danger">
+				        <strong>Failed to save the changes. Please correct the error(s) below and try again.
+				    </div>
+			    {% endif %}
+	    
+                {{ form.as_p }}
+                <p class="custom-form-actions">
+                    <button class="btn btn-primary" type="submit">Save settings</button>
+                    <a class="btn btn-default" href="/setup">Cancel</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+{% endblock content%}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}CloudedBats.org - WURB (Wireless Ultrasonic Recorder for Bats){% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}" />
+    <link rel="stylesheet" href="{% static "css/cloudedbats.css" %}" />
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+</head>
+<body>
+    <header class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/about">CloudedBats</a>
+            </div>
+            <nav class="collapse navbar-collapse" id="primary-nav">
+                <ul class="nav navbar-nav">
+                    <li><a href="/control">Control</a></li>
+                    <li><a href="/setup">Setup</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">All modules<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/control/">Control</a></li>
+                             <li><a href="/setup/">Setup</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/documentation/">Documentation</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/development/">Development</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/about/">About</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+			{% block standard-alerts %}
+
+            {% endblock standard-alerts %}
+
+            {% block content %}
+
+            {% endblock content %}
+
+        </div>
+    </div>
+
+</body>
+</html>
