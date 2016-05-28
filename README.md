@@ -36,7 +36,7 @@ Continuous full spectrum recordings at 384 kHz - 16 bits - mono results in files
 
 #### Issues 
 There are some issues when recording sound files. 
-Sometimes the signal became completely silent and I think it's related to when the computer is busy. There is also some very short, full frequency, disturbing sounds where I have no idea where the source is. Mobile chargers may produce some high frequency signals when they are used instead of the PowerBank. 
+Sometimes the signal became completely silent, and this is related to when the computer is busy. Mobile chargers may produce some high frequency signals when they are used instead of the PowerBank. The WiFi module may produce disturbing noise if the microphone is put directly on top of the on the Raspberry Pi as shown in the picture. 
 Check the issue tracker for [CloudedBats] (http://cloudedbats.org) for more information. 
 
 ## Resouces
