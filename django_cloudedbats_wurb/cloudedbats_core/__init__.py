@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 
 from cloudedbats_core.cloudedbats_utils import singleton
 #
-from cloudedbats_core.lib import solartime
+###from cloudedbats_core.lib import solartime
 from cloudedbats_core.sunset_sunrise import SunsetSunrise
 #
 from cloudedbats_core.wurb_recorder import SoundRecorder
