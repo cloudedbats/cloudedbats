@@ -1,0 +1,138 @@
+{% extends "cloudedbats_base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+  CloudedBats - Species
+{% endblock title %}
+
+
+{% block content-left-area %}
+
+  <script type="text/javascript">
+    function reload_page(element) {
+      window.location = "/species/?" +
+    		            "country=" + $('#country_select').val().toLowerCase() + 
+    		            "&family=" + $('#family_select').val().toLowerCase() + 
+    		            "&genus=" + $('#genus_select').val().toLowerCase() + 
+    		            "&redlist_category=" + $('#redlist_category_select').val().toLowerCase()
+    }
+    function download_table(element) {
+          window.location = "/species/download?" +
+        		            "country=" + $('#country_select').val().toLowerCase() + 
+        		            "&family=" + $('#family_select').val().toLowerCase() + 
+        		            "&genus=" + $('#genus_select').val().toLowerCase() + 
+        		            "&redlist_category=" + $('#redlist_category_select').val().toLowerCase()
+    }
+  </script>            
+
+  <h4><b>Filters:</b></h4>
+
+  <h4>Country: </h4>
+  <select id="country_select" onchange="reload_page(this)" style="max-width:40%;">
+    <option value="All">All</option>
+    {% for country in countries %}
+      {% if country.country_isocode == selected_country %}
+        <option value="{{ country.country_isocode }}" selected="selected">{{ country.country_name }} ({{country.country_isocode }})</option>
+      {% else %}
+        <option value="{{ country.country_isocode }}">{{ country.country_name }} ({{country.country_isocode }})</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+
+  <h4>Family: </h4>
+  <select id="family_select" onchange="reload_page(this)" style="max-width:40%;">
+    <option value="All">All</option>
+    {% for family_name in family_names %}
+      {% if family_name == selected_family_name %}
+        <option value="{{ family_name }}" selected="selected">{{ family_name }}</option>
+      {% else %}
+        <option value="{{ family_name }}">{{ family_name }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+
+  <h4>Genus: </h4>
+  <select id="genus_select" onchange="reload_page(this)" style="max-width:40%;">
+    <option value="All">All</option>
+    {% for genus_name in genus_names %}
+      {% if genus_name == selected_genus_name %}
+        <option value="{{ genus_name }}" selected="selected">{{ genus_name }}</option>
+      {% else %}
+        <option value="{{ genus_name }}">{{ genus_name }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+
+  <h4>Red list category: </h4>
+  <select id="redlist_category_select" onchange="reload_page(this)" style="max-width:40%;">
+    <option value="All">All</option>
+    {% for redlist_category in redlist_categories %}
+      {% if redlist_category == selected_redlist_category %}
+        <option value="{{ redlist_category }}" selected="selected">{{ redlist_category }}</option>
+      {% else %}
+        <option value="{{ redlist_category }}">{{ redlist_category }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+
+  <br/>
+  <br/>
+  <h4><b>Download:</b></h4>
+  <button onclick="download_table()">Download table</button>
+
+{% endblock content-left-area %}
+
+
+{% block content-alerts %}
+
+{% endblock content-alerts %}
+
+
+{% block content %}
+
+  <h3>Chiroptera species (from IUCN Red List of Threatened Species)</h3>
+  <br/>
+	
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Row</th>
+          <th>Family</th>
+          <th>Genus</th>
+          <th>Scientific name</th>
+          <th>IUCN Red list</th>
+          <th>Distribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for species in species_db %}
+          <tr>
+            <td>{{ species.row_no }}</td>
+            <td><a href="https://en.wikipedia.org/wiki/{{ species.family_name|title }}">{{ species.family_name|title }}</td>
+            <td><a href="https://en.wikipedia.org/wiki/{{ species.genus_name }}">{{ species.genus_name }}</td>
+            <td><a href="https://en.wikipedia.org/wiki/{{ species.scientific_name }}">{{ species.scientific_name }}</td>
+            <td><a href="http://www.iucnredlist.org/details/{{ species.taxonid }}">{{ species.category_global }} (id={{ species.taxonid }})</a></td>
+            <td><a href="http://maps.iucnredlist.org/map.html?id={{ species.taxonid }}">Link to map</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <br/>
+  <hr>
+  <p>Source of information:
+  <br/>
+  - IUCN 2016. IUCN Red List of Threatened Species. Version 2016-3.  
+  <a href="http://www.iucnredlist.org">http://www.iucnredlist.org</a>
+  </p>
+  <br/>
+
+{% endblock content %}
+
+
+{% block content-right-area %}
+
+{% endblock content-right-area %}
