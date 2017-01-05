@@ -2,7 +2,7 @@
 
 CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for free download.
 
-So far I have learned some Raspberry Pi basics and can use a high quality ultrasonic microphone to record bat sounds. The recording unit is placed outside and can be controlled from any unit (computers, smartphones, etc.) connected to my local wireless network. Next step is to learn more about DSP, Digital Signal Processing, to remove empty parts from the sound files and to store them in a more compact way. After that I will try to learn how to extract the sound components to do some analysis based on start and stop frequencies, signal duration, interval, peak frequencies etc. (This is a real challenge since I have no idea at all how to do it). 
+So far I have learned some Raspberry Pi basics and can use a high quality ultrasonic microphone to record bat sounds. The recording unit is placed outside and can be controlled from any unit (computers, smartphones, etc.) connected to my local wireless network. Next step is to learn more about DSP, Digital Signal Processing, to remove empty parts from the sound files and to store them in a more compact way. 
 
 I'm also interested in figuring out what kind of surveys can be done if you can set up 10 - 30 autonomous recording units connected via the internet and record data for the whole season. Computers can not replace a human equipped with a heterodyne in the same way that binoculars still are the birdwatchers best tool, but computers can do some boring and time consuming tasks to help the bat workers and researchers. 
 
@@ -49,12 +49,7 @@ I'm planning for some Wiki-pages that describes the software design and how to s
 This is where you can find the latest development version of the software. Versions found here are definitely not stable versions. 
 
 #### [http://backyardbats.org] (http://backyardbats.org)
-Points to a GitHub repository under CloudedBats. This is where I put Raspberry Pi related stuff used to set up a WURB, Wireless Ultrasonic Recorder for Bats, unit. I'm currently working on a Wiki-page containing all I know about the topic. 
-
-- [Wiki: Raspberry Pi installation] (https://github.com/cloudedbats/backyardbats/wiki/Raspberry-Pi-installation)
-
-In the future I will use the backyardbats domain as a top domain for a web page containing near-real-time information from my WURB:s. 
-
+Points to a GitHub repository under CloudedBats. This is where I put Raspberry Pi related stuff used to set up a WURB, Wireless Ultrasonic Recorder for Bats, unit. 
 
 ## About the name *CloudedBats*
 
