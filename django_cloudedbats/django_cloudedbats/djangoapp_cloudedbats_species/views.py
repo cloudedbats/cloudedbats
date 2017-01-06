@@ -67,7 +67,8 @@ def download(request):
         'Genus',
         'Scientific name',
         'IUCN Red list',
-        'Distribution',
+        'IUCN link',
+        'EOL link',
         ]
     #
     # URL parameters.
@@ -105,6 +106,7 @@ def download(request):
             out_row.append(species['scientific_name'])
             out_row.append(species['category_global'])
             out_row.append('http://maps.iucnredlist.org/map.html?id=' + species['taxonid'])
+            out_row.append('http://eol.org/search?q=' + species['scientific_name'])
             out_rows.append(out_row)
     #
     response = HttpResponse(content_type = 'text/plain; charset=cp1252')    
@@ -118,7 +120,7 @@ def update_red_list(request):
     """ """
 
 
-    # 
+    # To avoid total update during development...
     return render(request, "cloudedbats_species.html", {})
     
     
