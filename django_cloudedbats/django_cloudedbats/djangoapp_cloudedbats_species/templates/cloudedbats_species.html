@@ -103,7 +103,8 @@
           <th>Genus</th>
           <th>Scientific name</th>
           <th>IUCN Red list</th>
-          <th>Distribution</th>
+<!--           <th>Distribution</th> -->
+          <th>EOL</th>          
         </tr>
       </thead>
       <tbody>
@@ -114,7 +115,8 @@
             <td><a href="https://en.wikipedia.org/wiki/{{ species.genus_name }}">{{ species.genus_name }}</td>
             <td><a href="https://en.wikipedia.org/wiki/{{ species.scientific_name }}">{{ species.scientific_name }}</td>
             <td><a href="http://www.iucnredlist.org/details/{{ species.taxonid }}">{{ species.category_global }} (id={{ species.taxonid }})</a></td>
-            <td><a href="http://maps.iucnredlist.org/map.html?id={{ species.taxonid }}">Link to map</a></td>
+<!--             <td><a href="http://maps.iucnredlist.org/map.html?id={{ species.taxonid }}">Link to IUCN</a></td> -->
+            <td><a href="http://eol.org/search?q={{ species.scientific_name }}">Link to EOL</a></td>
           </tr>
         {% endfor %}
       </tbody>

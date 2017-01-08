@@ -34,18 +34,25 @@ def list_species(request):
         taxa_for_country_dict[row['taxonid']] = row['category_country'] # TODO: Not used. Global does not differ from country level.
     row_no = 1 # For row numbering in html table.
     #
+#     family_set = set()
+#     genus_set = set()
     for species in species_db:
         if (selected_country in ['', 'ALL']) or (species['taxonid'] in taxa_for_country_dict.keys()):
             species['category_country'] = taxa_for_country_dict.get(species['taxonid'], '-')
             species['row_no'] = row_no
             row_no += 1
             selected_species_db.append(species)
+            #
+#             family_set.add(species['family_name'].title())
+#             genus_set.add(species['genus_name'].title())
     # For html select option lists.
     countries_db = models.Countries.objects.order_by('country_name').values()
     family_db = models.SpeciesChiroptera.objects.values_list('family_name').order_by('family_name').distinct()
     family_list = [item[0].title() for item in family_db]
     genus_db = models.SpeciesChiroptera.objects.values_list('genus_name').order_by('genus_name').distinct()
     genus_list = [item[0] for item in genus_db]
+#     family_list = sorted(family_set)
+#     genus_list = sorted(genus_set)
     redlist_db = models.SpeciesChiroptera.objects.values_list('category_global').order_by('category_global').distinct()
     redlist_list = [item[0] for item in redlist_db]
     #
@@ -67,7 +74,8 @@ def download(request):
         'Genus',
         'Scientific name',
         'IUCN Red list',
-        'Distribution',
+        'IUCN link',
+        'EOL link',
         ]
     #
     # URL parameters.
@@ -105,6 +113,7 @@ def download(request):
             out_row.append(species['scientific_name'])
             out_row.append(species['category_global'])
             out_row.append('http://maps.iucnredlist.org/map.html?id=' + species['taxonid'])
+            out_row.append('http://eol.org/search?q=' + species['scientific_name'])
             out_rows.append(out_row)
     #
     response = HttpResponse(content_type = 'text/plain; charset=cp1252')    
@@ -118,7 +127,7 @@ def update_red_list(request):
     """ """
 
 
-    # 
+    # To avoid total update during development...
     return render(request, "cloudedbats_species.html", {})
     
     
