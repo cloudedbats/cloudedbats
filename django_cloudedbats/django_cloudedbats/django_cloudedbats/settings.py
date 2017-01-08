@@ -25,7 +25,8 @@ SECRET_KEY = 'im(*_8ova$y+8oh__ur5$$sc4*^0b^c_$&yf!ojn2wn70%n^p0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 
+                 'test.cloudedbats.org']
 
 
 # Application definition
@@ -123,5 +124,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "djangoapp_cloudedbats_base/static")]
 STATIC_URL = '/static/'
+STATIC_ROOT = "/srv/django/cloudedbats/src/static/"
+
+
