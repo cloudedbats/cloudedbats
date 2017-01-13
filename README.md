@@ -2,7 +2,7 @@
 
 CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for free download.
 
-I'm working on both a recording unit and a web application that can communicate with a number of recording units. The design goal for the recording units hardware is to use standard components only, and it should be possible to put it together with as little soldering as possible. It should support continuous full spectrum recordings at high frequency sampling rate. It should also contain a post-processing step that reduces the file sizes by removing silent slots. 
+I'm working on both a recording unit and a web application that can communicate with a number of recording units. The design goal for the recording units hardware is to use standard components only, and it should be possible to put it together with as little soldering as possible. It should support continuous full spectrum recordings at high frequency sampling rate. It should also contain a post-processing step that reduces the file sizes by removing silent sequences. 
 
 The web application should have functionality for:
 
@@ -27,7 +27,7 @@ Image: CloudedBats.org / [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
 
 The image above is my first WURB. The setup is as follows:
 - [Raspberry Pi 3 B.] (https://www.raspberrypi.org/products/raspberry-pi-3-model-b) This version includes WiFi and Bluetooth on the board.
-- Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.] (http://batsound.se/?p=125)
+- Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.] (http://batsound.com/?p=125)
 - Powerbank. 2200 mAh, in/out: 5V, 1A.
 - USB memory 32 GB for recorded sound files (wav-files). Enough for 10 hours of continuous  recording.
 - Micro SD card with Raspbian Jessie Lite and the CloudedBats software.
@@ -57,7 +57,7 @@ http://www.afraidofsunlight.co.uk/weather/index.php?page=bat
 Year 2016: Was thinking a lot about how to build an ultrasonic microphone (by using a 500 kHz ADC and the Raspberry Pi PCI interface). But I'm a software developer, not a hardware designer, and when the Pettersson M500-385 was released I bought one directly. Started to record in the beginning of the bat season and tried to learn more about bats and their sound. Species identification is harder than I earlier thought. Even in Sweden with a limited number of species a lot of them are impossible to identify by analysing sound only.
 
 #### In progress
-During 2017 the plans are to develop a web application that can interact with a number of recording units. For test I will use three recordings units, two running at 384 kHz and one at 500 kHz. A web server for test and development is already set up, running in a virtual cloud server. The different parts in the web application will be added when they are ready for test. The web application can be found here: http://test.cloudedbats.org
+During 2017 the plans are to develop a web application that can interact with a number of recording units. For test I will use three recording units, two running at 384 kHz and one at 500 kHz. A web server for test and development is already set up, running in a virtual cloud server. The different parts in the web application will be added when they are ready for test. The web application can be found here: http://test.cloudedbats.org
 
 #### Future
 A huge amount of data will be produced when using multiple recording units for many nights. Therefore, the natural next step is to develop systems for automatic processing of recorded data and tools for visualising the results. (I'm planning to develop something with scipy/numpy, scikit-learn and bokeh.)
