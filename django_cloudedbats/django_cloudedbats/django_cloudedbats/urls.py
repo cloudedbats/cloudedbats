@@ -25,6 +25,7 @@ urlpatterns = [
     #
     url(r'^wurbs/', include('djangoapp_cloudedbats_wurbs.urls')),
 #     url(r'^wurb_locations/', include('djangoapp_cloudedbats_wurb_locations.urls')),
+#     url(r'^bat_occurrences/', include('djangoapp_cloudedbats_bat_occurrences.urls')),
     #
 #     url(r'^surveys/', include('djangoapp_cloudedbats_surveys.urls')),
 #     url(r'^publish/', include('djangoapp_cloudedbats_publish.urls')),
@@ -33,5 +34,4 @@ urlpatterns = [
 #     url(r'^development/', include('djangoapp_cloudedbats_development.urls')),
     #
     url(r'^$', base_views.view_introduction),
-    url(r'^', base_views.view_work_in_progress),
 ]

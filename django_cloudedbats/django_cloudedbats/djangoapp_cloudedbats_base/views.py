@@ -18,6 +18,3 @@ def view_about(request):
     """ """    
     return render(request, "cloudedbats_about.html", {})
 
-def view_work_in_progress(request):
-    """ """    
-    return render(request, "cloudedbats_work_in_progress.html", {})
