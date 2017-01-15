@@ -16,15 +16,16 @@ urlpatterns = [
     url(r'^about/$', base_views.view_about),
     url(r'^about$', base_views.view_about),
     #
-    url(r'^bat_activity/', include('djangoapp_cloudedbats_bat_activity.urls')),
+#     url(r'^bat_activity/', include('djangoapp_cloudedbats_bat_activity.urls')),
     #
-    url(r'^sound_files/', include('djangoapp_cloudedbats_sound_files.urls')),
+#     url(r'^sound_files/', include('djangoapp_cloudedbats_sound_files.urls')),
     #
     url(r'^species/', include('djangoapp_cloudedbats_species.urls')),
     url(r'^species', include('djangoapp_cloudedbats_species.urls')),
     #
-    url(r'^wurbs/', include('djangoapp_cloudedbats_wurbs.urls')),
+#     url(r'^wurbs/', include('djangoapp_cloudedbats_wurbs.urls')),
 #     url(r'^wurb_locations/', include('djangoapp_cloudedbats_wurb_locations.urls')),
+#     url(r'^bat_occurrences/', include('djangoapp_cloudedbats_bat_occurrences.urls')),
     #
 #     url(r'^surveys/', include('djangoapp_cloudedbats_surveys.urls')),
 #     url(r'^publish/', include('djangoapp_cloudedbats_publish.urls')),
@@ -34,4 +35,5 @@ urlpatterns = [
     #
     url(r'^$', base_views.view_introduction),
     url(r'^', base_views.view_work_in_progress),
+    
 ]
