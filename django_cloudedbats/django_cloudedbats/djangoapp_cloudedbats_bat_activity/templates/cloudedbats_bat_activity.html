@@ -6,7 +6,6 @@
   CloudedBats - Bat activity
 {% endblock title %}
 
-
 {% block content-left-area %}
 
 {% endblock content-left-area %}
@@ -22,11 +21,40 @@
 	<h3>Bat activity</h3>
 	
 	<p>
-	CloudedBats...
+	<b>Test page. First try to visualise bat activities.</b>
+	</p>
+	<p>
+	Peak frequencies. <br> 
+	Extracted from: {{ wave_file_name|safe }} 
+	</p>
+	{{ js_resources|safe }}
+	{{ css_resources|safe }}
+	{{ plot_script|safe }}
+
+	{{ plot_div|safe }}
+	<p>
+	The diagram shows bat activities during 5 minutes (300 sec.). 
+	Peak frequencies is shown for each millisecond, and the size reflects the amplitude. 
+	Use the tool bar above the diagram to zoom and navigate in the diagram. 
+	Peak values are shown when hovering over the small circles.
+	</p>
+	<p>
+	I'm working on other metrics suitable for visualisation in other 
+	time-scales like hour, night, week, month and season.  
+	</p>
+
+	<p>
+	Data sources for the diagram:
+	<br>
+	- <a href="http://mellifica.se/downloads/cloudedbats_test/WURB-2_20160908T220024+0200_N57.6627E12.6393_TE-384.jpeg">Sonic visualiser image of the original wav-file.</a>
+	<br>
+	- <a href="http://mellifica.se/downloads/cloudedbats_test/WURB-2_20160908T220024+0200_N57.6627E12.6393_TE-384.wav">Original wav-file (230 MB).</a>
+	384 kHz at 16 bits during 5 minutes.
+	<br>
+	- <a href="http://mellifica.se/downloads/cloudedbats_test/peak_file.txt">File with peak frequencies (37 kB).</a>
 	</p>
 
 {% endblock content %}
-
 
 {% block content-right-area %}
 
