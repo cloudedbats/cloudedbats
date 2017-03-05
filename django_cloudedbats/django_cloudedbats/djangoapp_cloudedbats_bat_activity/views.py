@@ -35,7 +35,7 @@ def bat_activity(request):
         # Dev:
         peak_df = pd.read_csv('django_cloudedbats/django_cloudedbats/test_data/peak_file.txt', 
                               sep="\t") 
-    
+        
     peak_df['time_s'] = peak_df.time/1000
     peak_df['amplitude_log'] = np.log(peak_df.amplitude + 2) * 3 #* 10
     # Bokeh data source. 
