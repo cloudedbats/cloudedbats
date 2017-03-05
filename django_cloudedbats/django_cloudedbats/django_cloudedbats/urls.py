@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^about$', base_views.view_about),
     #
     url(r'^bat_activity/', include('djangoapp_cloudedbats_bat_activity.urls')),
+    url(r'^bat_activity', include('djangoapp_cloudedbats_bat_activity.urls')),
     #
 #     url(r'^sound_files/', include('djangoapp_cloudedbats_sound_files.urls')),
     #
