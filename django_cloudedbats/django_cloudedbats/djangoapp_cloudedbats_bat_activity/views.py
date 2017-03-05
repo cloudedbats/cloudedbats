@@ -26,7 +26,7 @@ def bat_activity(request):
     wave_file_name = 'WURB-2_20160908T220024+0200_N57.6627E12.6393_TE-384.wav'
     
     # Pandas data frame
-    peak_df = pd.read_csv('django_cloudedbats/test_data/peak_file.txt', 
+    peak_df = pd.read_csv('django_cloudedbats/django_cloudedbats/test_data/peak_file.txt', 
                           sep="\t") 
     peak_df['time_s'] = peak_df.time/1000
     peak_df['amplitude_log'] = np.log(peak_df.amplitude + 2) * 3 #* 10
