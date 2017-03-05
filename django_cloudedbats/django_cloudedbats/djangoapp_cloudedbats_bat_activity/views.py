@@ -26,16 +26,25 @@ def bat_activity(request):
     wave_file_name = 'WURB-2_20160908T220024+0200_N57.6627E12.6393_TE-384.wav'
     
     # Pandas data frame
-    peak_df = pd.read_csv('django_cloudedbats/test_data/peak_file.txt', 
-                          sep="\t") 
+    peak_df = None
+    try:
+        # Prod:
+        peak_df = pd.read_csv('/srv/django/cloudedbats/src/test_data/peak_file.txt', 
+                              sep="\t") 
+    except:
+        # Dev:
+        peak_df = pd.read_csv('django_cloudedbats/django_cloudedbats/test_data/peak_file.txt', 
+                              sep="\t") 
+    
     peak_df['time_s'] = peak_df.time/1000
     peak_df['amplitude_log'] = np.log(peak_df.amplitude + 2) * 3 #* 10
     # Bokeh data source. 
     ds = ColumnDataSource(peak_df)
     # 
-    TOOLS="pan, xwheel_pan, box_zoom, wheel_zoom, undo, redo, reset, hover, resize, save"
+    TOOLS="pan, box_zoom, wheel_zoom, undo, redo, reset, hover, resize, save"
     # MORE_TOOLS="crosshair, tap,box_select, poly_select, lasso_select, tap"
-    p = figure(tools=TOOLS, toolbar_location="above", active_drag="box_zoom")
+    p = figure(tools=TOOLS, toolbar_location="above")
+#    p = figure(tools=TOOLS, toolbar_location="above", active_drag="box_zoom")
 #     p.title.text="WURB-2_20160908T220024+0200_N57.6627E12.6393_TE-384"
     p.plot_width = 700 # 1800
     p.plot_height = 300
