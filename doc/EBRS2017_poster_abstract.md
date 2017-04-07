@@ -22,4 +22,4 @@ Future work will include cloud storage and computation of huge amounts of data. 
 
 Open data facilitates data sharing and is becoming the standard alternative for biological monitoring data. The Creative Commons (https://creativecommons.org/) license alternatives CC0 and CC-BY are recommended by international actors like GBIF (http://www.gbif.org/species/734). 
 
-The poster presents software and hardware available for bat recordings and data management.
+The poster presents software and hardware for bat recordings and data management.
