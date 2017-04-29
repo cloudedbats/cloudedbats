@@ -23,11 +23,11 @@ But it's just a spare time project and I will continue as long as I learn a lot 
 All kind of software must be deployed on some hardware. For the recording unit the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not very expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency of 384 kHz is enough for European bats and 500 kHz is needed for some other species. For backyard monitoring 192 kHz will work to detect peak frequencies for many bats. Choose a sensitive one with a good signal to noise ratio.
 
 ![WURB-A001](images/WURB-A001-web.jpg?raw=true  "WURB - Wireless Ultrasonic Recorder for Bats")
-Image: CloudedBats.org / [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
+Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
 The image above is my first WURB (from early 2016). The setup is as follows:
-- [Raspberry Pi 3 B.] (https://www.raspberrypi.org/products/raspberry-pi-3-model-b) This version includes WiFi and Bluetooth on the board.
-- Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.] (http://batsound.com/?p=125)
+- [Raspberry Pi 3 B.](https://www.raspberrypi.org/products/raspberry-pi-3-model-b) This version includes WiFi and Bluetooth on the board.
+- Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.](http://batsound.com/?p=125)
 - Powerbank. 2200 mAh, in/out: 5V, 1A.
 - USB memory 32 GB for recorded sound files (wav-files). Enough for 10 hours of continuous  recording.
 - Micro SD card with Raspbian Jessie Lite and the CloudedBats software.
@@ -39,31 +39,29 @@ Power consumption is less than 5 W (1 A at 5 V). The powerbank mentioned above c
 
 The CloudedBats project is stored on GitHub as a GitHub organisation. Link: https://github.com/cloudedbats
 
-It contains a number of repositories for documentation and/or software code. 
+It contains a number of repositories for documentation and/or software code:
 
-#### http://cloudedbats.org
+- **http://cloudedbats.org**
 The web domain name cloudedbats.org points to the main repository https://github.com/cloudedbats/cloudedbats.
-
 It contains some information about the project.
 
-#### https://github.com/cloudedbats/cloudedbats_wurb
+- **https://github.com/cloudedbats/cloudedbats_wurb** 
 Contains software for the recording unit. It is called WURB - Wireless Ultrasonic Recorder for Bats.
 
-#### https://github.com/cloudedbats/cloudedbats_web
+- **https://github.com/cloudedbats/cloudedbats_web**
 Contains software for the web page. 
 
-#### https://github.com/cloudedbats/cloudedbats_dsp
+- **https://github.com/cloudedbats/cloudedbats_dsp** 
 DSP - Digital Signal Processing is important when sound should be automatically analysed. This repository will contain experimental code and software used to process Wave files. Results will later be implemented in the WURB, on the web and in the cloud.
 
-#### https://github.com/cloudedbats/cloudedbats_cloud
+- **https://github.com/cloudedbats/cloudedbats_cloud** 
 The cloud will be used for storage and processing of recorded data. Future work.
 
-#### http://backyardbats.org
+- **http://backyardbats.org** 
 The web domain name backyardbats.org points to the repository https://github.com/cloudedbats/backyardbats.
-
 Contains Raspberry Pi related stuff. At the moment the software stored here is not needed to set up a CloudedBats system. 
 
-#### [https://github.com/arnoldandreasson/cloudedbats] (https://github.com/arnoldandreasson/cloudedbats)
+- **https://github.com/arnoldandreasson/cloudedbats** 
 This is a repository on my personal GitHub account. I will use it for experimental code during development but with no documentation at all.
 
 ## Timeline
@@ -90,12 +88,12 @@ My personal motivation for the project is learning by doing. I want to learn mor
 
 ## About the name *CloudedBats*
 
-CloudedBats is not about [*clouds* of bats] (https://www.google.se/search?q=clouds+of+bats), nor funny patterned animals like the cute 
-[*clouded* leopard] (https://en.wikipedia.org/wiki/Clouded_leopard). 
+CloudedBats is not about [*clouds* of bats](https://www.google.se/search?q=clouds+of+bats), nor funny patterned animals like the cute 
+[*clouded* leopard](https://en.wikipedia.org/wiki/Clouded_leopard). 
 
 It's more about using *cloud* related technology to make bat monitoring more accessible. 
 
-But all living species, including humans and bats, should in some sense be *clouded* since we are in the beginning of the new epoch of [Anthropocene] (https://en.wikipedia.org/wiki/Anthropocene). 
+But all living species, including humans and bats, should in some sense be *clouded* since we are in the beginning of the new epoch of [Anthropocene](https://en.wikipedia.org/wiki/Anthropocene). 
 
 ## Contact
 
