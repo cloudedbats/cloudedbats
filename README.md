@@ -1,8 +1,8 @@
 # CloudedBats - free software for bat monitoring
 
-CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for free download.
+CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for processing and storage.
 
-I'm working on both a recording unit and a web application that can communicate with a number of recording units. The design goal for the recording units hardware is to use standard components only, and it should be possible to put it together with as little soldering as possible. It should support continuous full spectrum recordings at high frequency sampling rate. It should also contain a post-processing step that reduces the file sizes by removing silent sequences. 
+I'm working on both a recording unit and a web application that can communicate with a number of recording units. The design goal for the recording units hardware is to use standard components only, and it should be possible to put it together with as little soldering as possible. It should support continuous full spectrum recordings at high frequency sampling rate. It should also contain functionality for digital signal processing. 
 
 The web application should have functionality for:
 
@@ -41,12 +41,11 @@ The CloudedBats project is stored on GitHub as a GitHub organisation. Link: http
 
 It contains a number of repositories for documentation and/or software code:
 
-- **http://cloudedbats.org**
-The web domain name cloudedbats.org points to the main repository https://github.com/cloudedbats/cloudedbats.
-It contains some information about the project.
+- **https://github.com/cloudedbats/cloudedbats**
+This repository. Contains some info about the project. The web domain http://cloudedbats.org also points to this repository.
 
 - **https://github.com/cloudedbats/cloudedbats_wurb** 
-Contains software for the recording unit. It is called WURB - Wireless Ultrasonic Recorder for Bats.
+Contains software for the recording unit. The recording unit is called WURB - Wireless Ultrasonic Recorder for Bats.
 
 - **https://github.com/cloudedbats/cloudedbats_web**
 Contains software for the web page. 
@@ -57,9 +56,10 @@ DSP - Digital Signal Processing is important when sound should be automatically 
 - **https://github.com/cloudedbats/cloudedbats_cloud** 
 The cloud will be used for storage and processing of recorded data. Future work.
 
-- **http://backyardbats.org** 
-The web domain name backyardbats.org points to the repository https://github.com/cloudedbats/backyardbats.
-Contains Raspberry Pi related stuff. At the moment the software stored here is not needed to set up a CloudedBats system. 
+- **https://github.com/cloudedbats/backyardbats** 
+Contains Raspberry Pi related stuff. 
+The web domain name http://backyardbats.org points here.
+At the moment the software stored here is not needed to set up a CloudedBats system. 
 
 - **https://github.com/arnoldandreasson/cloudedbats** 
 This is a repository on my personal GitHub account. I will use it for experimental code during development but with no documentation at all.
