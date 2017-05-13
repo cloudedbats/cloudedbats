@@ -22,6 +22,8 @@ But it's just a spare time project and I will continue as long as I learn a lot 
 
 All kind of software must be deployed on some hardware. For the recording unit the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not very expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency of 384 kHz is enough for European bats and 500 kHz is needed for some other species. For backyard monitoring 192 kHz will work to detect peak frequencies for many bats. Choose a sensitive one with a good signal to noise ratio.
 
+#### First recording device ####
+
 ![WURB-A001](images/WURB-A001-web.jpg?raw=true  "WURB - Wireless Ultrasonic Recorder for Bats")
 Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
@@ -34,6 +36,25 @@ The image above is my first WURB (from early 2016). The setup is as follows:
 - Raspberry Pi Case and some Velcro to keep the microphone in place. 
 
 Power consumption is less than 5 W (1 A at 5 V). The powerbank mentioned above can run it for nearly 3 hours and I use a 11000 mAh powerbank when recording during a full night. 
+
+#### Devices for development and test 2017 ####
+
+![WURB-A001](images/CloudedBats_hw_2017.jpg?raw=true  "Recording devices for 2017")
+Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+
+For development and testing in 2017, I will use three different recording devices. The software used is the same for all three devices, but the hardware configuration differs to match three different usage cases.
+
+Left device: The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
+Hardware Configuration: Microphone M500-384 (384 kHz), RaspberryPi2B, No WiFi, GPS (old Version), 32GB USB Memory. Most power sources used for smart phones can be used.
+Usage: Both switches in the middle position and connect the power. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis.
+
+Center device: Mobile unit for transects and overnight at places of interest.
+Hardware configuration: Pettersson M500-384 (384 kHz), RaspberryPi3B, WiFi, GPS/Galileo (Galileo is the new European version), 64GB USB memory, wireless mouse for remote control. Power bank for more than 12 hours of operation.
+
+Right device: Stationary device for long term monitoring.
+Hardware configuration: Pettersson M500 (500 kHz, for Windows only), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application, but that part has not yet been completed.
+
+The CloudedBats software feature list is here: https://github.com/cloudedbats/cloudedbats_wurb
 
 ## Resources
 
