@@ -129,4 +129,6 @@ But all living species, including humans and bats, should in some sense be *clou
 
 ## Contact
 
+Arnold Andreasson, Sweden.
+
 info@cloudedbats.org
