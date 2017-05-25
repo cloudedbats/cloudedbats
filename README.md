@@ -55,7 +55,7 @@ Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 For field tests during 2017, I will use three different recording units. The software used is the same for all three devices, but the hardware configuration differs to match three different usage cases.
 
 **Left device:** The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
-Hardware Configuration: Microphone Pettersson M500-384 (384 kHz), RaspberryPi2B, No WiFi, GPS (an old version), 32 GB USB Memory. Most power sources used for smart phones can be used.
+Hardware configuration: Microphone Pettersson M500-384 (384 kHz), RaspberryPi2B, no WiFi, GPS (an old version), 32 GB USB Memory. Most power sources used for smart phones can be used.
 
 Short usage description: Both switches in the middle position and connect power. GPS gives input to the scheduler to start at sunset and stop at sunrise. Recordings starts automatically when sound above 15 kHz are detected. All sound files are named with time and position. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis. 
 
