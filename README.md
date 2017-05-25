@@ -1,66 +1,77 @@
 # CloudedBats - free software for bat monitoring
 
-CloudedBats is a hobby project where I want to find out if it is possible, on a spare time basis, to develop some code that covers the whole chain from recording bat sounds to publishing the bat monitoring results in the cloud for processing and storage.
+Welcome to CloudedBats. 
+ 
+CloudedBats is a software project where I develop free and open source code for bat monitoring. The project's goal is to cover many aspects of bat monitoring; data capture, data management and analysis, cloud storage and publishing of data and results as open data.
+ 
+CloudedBats consists of three main parts:
+ 
+### Recording units
 
-I'm working on both a recording unit and a web application that can communicate with a number of recording units. The design goal for the recording units hardware is to use standard components only, and it should be possible to put it together with as little soldering as possible. It should support continuous full spectrum recordings at high frequency sampling rate. It should also contain functionality for digital signal processing. 
+The recording units are used for passive monitoring to record long sequences of ultrasonic sound in FS (Full Spectrum) or TE (Time Expanded) mode. The recording units can be used in standalone mode or connected to a web server. Since the software can run on most Linux systems the price can be relative low and clusters of recording units can be used.
 
-The web application should have functionality for:
+Development status: Works well as standalone units. Web integration in progress.
 
-- Configuration and control of a number of recording units.
-- Graphical presentations of bat activity in near real time. For disconnected units the results should appear next time the unit is connected to internet.
-- Upload, download and visualisation of selected wave files. 
-- Support for publishing survey results in the DarwinCore format. 
-- Species lists, and maybe other useful information.
+Images below. Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb
+ 
+### Web page
+The main purpose for the web page is to control a number of recording units and to visualise bat activities on different time scales. Modules for data management and surveys are planned.
 
-The web application is under development and the latest public version for test can be found here: http://test.cloudedbats.org
+Development status: Basic design finished and test server is running. Integration with recording units in progress. Other modules later.
 
-When finished, and if the project succeeds, I think it could be a useful and affordable set up for bat workers, groups of bat enthusiasts or research teams. Maybe parts of it can inspire others to make their systems better suited for data sharing and collaboration.  
+Test server: http://test.cloudedbats.org 
 
-But it's just a spare time project and I will continue as long as I learn a lot and think it's fun. After that, or when you think my progress is too slow, you are free to fork the code and continue the work since it's all open and free...
+Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_web
+ 
+### Cloud storage and processing
+Today, there are many interesting alternatives for storage and computation of large amounts of data in the cloud. When working with clusters of detectors, we will need that capacity.
+
+Development status: Planning.
 
 ## WURB - Wireless Ultrasonic Recorder for Bats
 
 All kind of software must be deployed on some hardware. For the recording unit the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not very expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency of 384 kHz is enough for European bats and 500 kHz is needed for some other species. For backyard monitoring 192 kHz will work to detect peak frequencies for many bats. Choose a sensitive one with a good signal to noise ratio.
 
-#### First recording device ####
+### First recording unit ###
 
 ![WURB-A001](images/WURB-A001-web.jpg?raw=true  "WURB - Wireless Ultrasonic Recorder for Bats")
 Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
-The image above is my first WURB (from early 2016). The setup is as follows:
+The image above is my first WURB (from early 2016). The setup was as follows:
 - [Raspberry Pi 3 B.](https://www.raspberrypi.org/products/raspberry-pi-3-model-b) This version includes WiFi and Bluetooth on the board.
 - Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.](http://batsound.com/?p=125)
-- Powerbank. 2200 mAh, in/out: 5V, 1A.
-- USB memory 32 GB for recorded sound files (wav-files). Enough for 10 hours of continuous  recording.
-- Micro SD card with Raspbian Jessie Lite and the CloudedBats software.
+- USB memory 32 GB for recorded sound files (wav-files). Enough for 10 hours of continuous recording.
+- Powerbank. 2200 mAh, in/out: 5V, 1A. Enough for about 3 hours.
+- Micro SD card with Linux (Raspbian Jessie Lite) and the CloudedBats software.
 - Raspberry Pi Case and some Velcro to keep the microphone in place. 
 
-Power consumption is less than 5 W (1 A at 5 V). The powerbank mentioned above can run it for nearly 3 hours and I use a 11000 mAh powerbank when recording during a full night. 
+This early version contained a web server for configuration and control from any device in the local network running a web browser. This solution was later replaced by more practical alternatives for configuration and control. 
 
-#### Devices for development and test 2017 ####
+### Devices for the bat season 2017 ###
 
 ![WURB-A001](images/CloudedBats_hw_2017.jpg?raw=true  "Recording devices for 2017")
 Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
-For development and testing in 2017, I will use three different recording devices. The software used is the same for all three devices, but the hardware configuration differs to match three different usage cases.
+For field tests during 2017, I will use three different recording units. The software used is the same for all three devices, but the hardware configuration differs to match three different usage cases.
 
-Left device: The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
-Hardware Configuration: Microphone M500-384 (384 kHz), RaspberryPi2B, No WiFi, GPS (old Version), 32GB USB Memory. Most power sources used for smart phones can be used.
-Usage: Both switches in the middle position and connect the power. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis.
+**Left device:** The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
+Hardware Configuration: Microphone Pettersson M500-384 (384 kHz), RaspberryPi2B, No WiFi, GPS (an old version), 32 GB USB Memory. Most power sources used for smart phones can be used.
 
-Center device: Mobile unit for transects and overnight at places of interest.
-Hardware configuration: Pettersson M500-384 (384 kHz), RaspberryPi3B, WiFi, GPS/Galileo (Galileo is the new European version), 64GB USB memory, wireless mouse for remote control. Power bank for more than 12 hours of operation.
+Short usage description: Both switches in the middle position and connect power. GPS gives input to the scheduler to start at sunset and stop at sunrise. Recordings starts automatically when sound above 15 kHz are detected. All sound files are named with time and position. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis. 
 
-Right device: Stationary device for long term monitoring.
-Hardware configuration: Pettersson M500 (500 kHz, for Windows only), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application, but that part has not yet been completed.
+**Center device:** Mobile unit for transects and overnight at places of interest.
+Hardware configuration: Pettersson M500-384 (384 kHz), RaspberryPi3B, WiFi, GPS/Galileo, 64 GB USB memory, wireless mouse for remote control. Power bank for more than 12 hours of operation (11 Ah).
+
+**Right device:** Stationary device for long term monitoring.
+Hardware configuration: Pettersson M500 (500 kHz. M500 is normally for Windows only, but can be used here.), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application (work in progress).
 
 The CloudedBats software feature list is here: https://github.com/cloudedbats/cloudedbats_wurb
 
 ## Resources
 
-The CloudedBats project is stored on GitHub as a GitHub organisation. Link: https://github.com/cloudedbats
+GitHub is used as a project platform and source code repository by many open source projects and by developers of open source libraries. CloudedBats is build as at thin layer on top of many of these libraries. The CloudedBats project is also stored on GitHub as a GitHub organisation. Link to the CloudedBats organisation: https://github.com/cloudedbats
 
-It contains a number of repositories for documentation and/or software code:
+The CloudedBats organisation is divided into a number of repositories for documentation and/or software code. These repositories can be seen as subprojects, and they are:
 
 - **https://github.com/cloudedbats/cloudedbats**
 This repository. Contains some info about the project. The web domain http://cloudedbats.org also points to this repository.
@@ -88,10 +99,10 @@ This is a repository on my personal GitHub account. I will use it for experiment
 ## Timeline
 
 #### Past
-Year 2015: Visited two local bat nights in august 2015. Bought my first heterodyne detector and some books on the topic. Searched for a suitable more advanced detector, but there was no one with internet connection. Decided to build my own based on the Raspberry Pi platform. I was mainly inspired by this page 
+Year 2015: Visited two local bat nights in august 2015. Bought my first heterodyne detector and some books on the topic. Searched for a suitable more advanced detector, but there was no one with internet connection and processing capacity. Decided to build my own based on the Raspberry Pi platform. I was mainly inspired by this page 
 http://www.afraidofsunlight.co.uk/weather/index.php?page=bat
 
-Year 2016: Was thinking a lot about how to build an ultrasonic microphone (by using a 500 kHz ADC and the Raspberry Pi PCI interface). But I'm a software developer, not a hardware designer, and when the Pettersson M500-385 was released I bought one directly. Started to record in the beginning of the bat season and tried to learn more about bats and their sound. Species identification is harder than I earlier thought. Even in Sweden with a limited number of species a lot of them are impossible to identify by analysing sound only.
+Year 2016: Was thinking a lot about how to build an ultrasonic microphone (by using a 500 kHz ADC and the Raspberry Pi PCI interface). But I'm a software developer, not a hardware designer, and when the Pettersson M500-385 was released I bought one directly. Started to record in the beginning of the bat season and tried to learn more about bats and their sound. Species identification is harder than I earlier thought. Even in Sweden with a limited number of species a lot of them are nearly impossible to identify by analysing sound only.
 
 #### In progress
 During 2017 the plans are to develop a web application that can interact with a number of recording units. For test I will use three recording units, two running at 384 kHz and one at 500 kHz. A web server for test and development is already set up, running in a virtual cloud server. The different parts in the web application will be added when they are ready for test. The web application can be found here: http://test.cloudedbats.org
