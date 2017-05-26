@@ -77,10 +77,10 @@ The CloudedBats organisation is divided into a number of repositories for docume
 This repository. Contains some info about the project. The web domain http://cloudedbats.org also points to this repository.
 
 - **https://github.com/cloudedbats/cloudedbats_wurb** 
-Contains software for the recording unit. The recording unit is called WURB - Wireless Ultrasonic Recorder for Bats.
+Contains software and documentation for the recording unit. The recording unit is called WURB - Wireless Ultrasonic Recorder for Bats.
 
 - **https://github.com/cloudedbats/cloudedbats_web**
-Contains software for the web page. 
+Contains software and documentation for the web page. 
 
 - **https://github.com/cloudedbats/cloudedbats_dsp** 
 DSP - Digital Signal Processing is important when sound should be automatically analysed. This repository will contain experimental code and software used to process Wave files. Results will later be implemented in the WURB, on the web and in the cloud.
@@ -92,9 +92,6 @@ The cloud will be used for storage and processing of recorded data. Future work.
 Contains Raspberry Pi related stuff. 
 The web domain name http://backyardbats.org points here.
 At the moment the software stored here is not needed to set up a CloudedBats system. 
-
-- **https://github.com/arnoldandreasson/cloudedbats** 
-This is a repository on my personal GitHub account. I will use it for experimental code during development but with no documentation at all.
 
 ## Timeline
 
