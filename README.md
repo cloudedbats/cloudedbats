@@ -6,7 +6,7 @@ CloudedBats is a software project where I develop free and open source code for 
  
 CloudedBats consists of three main parts:
  
-### Recording units
+### - Recording units
 
 The recording units are used for passive monitoring to record long sequences of ultrasonic sound in FS (Full Spectrum) or TE (Time Expanded) mode. The recording units can be used in standalone mode or connected to a web server. Since the software can run on most Linux systems the price can be relative low and clusters of recording units can be used.
 
@@ -14,7 +14,7 @@ Development status: Works well as standalone units. Web integration in progress.
 
 Images below. Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb
  
-### Web page
+### - Web page
 The main purpose for the web page is to control a number of recording units and to visualise bat activities on different time scales. Modules for data management and surveys are planned.
 
 Development status: Basic design finished and test server is running. Integration with recording units in progress. Other modules later.
@@ -23,7 +23,7 @@ Test server: http://test.cloudedbats.org
 
 Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_web
  
-### Cloud storage and processing
+### - Cloud storage and processing
 Today, there are many interesting alternatives for storage and computation of large amounts of data in the cloud. When working with clusters of detectors, we will need that capacity.
 
 Development status: Planning.
@@ -57,15 +57,13 @@ For field tests during 2017, I will use three different recording units. The sof
 **Left device:** The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
 Hardware configuration: Microphone Pettersson M500-384 (384 kHz), RaspberryPi2B, no WiFi, GPS (an old version), 32 GB USB Memory. Most power sources used for smart phones can be used.
 
-Short usage description: Both switches in the middle position and connect power. GPS gives input to the scheduler to start at sunset and stop at sunrise. Recordings starts automatically when sound above 15 kHz are detected. All sound files are named with time and position. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis. 
+Short usage description: Both switches in the middle position and connect power. GPS gives input to the scheduler to start at sunset and stop at sunrise. Recordings starts automatically when sound above 15 kHz are detected, including buffered sound before and after. All sound files are named with time and position. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis. (Personally I use the free software Sonic Visualiser (http://www.sonicvisualiser.org/) for analysis.)
 
 **Center device:** Mobile unit for transects and overnight at places of interest.
 Hardware configuration: Pettersson M500-384 (384 kHz), RaspberryPi3B, WiFi, GPS/Galileo, 64 GB USB memory, wireless mouse for remote control. Power bank for more than 12 hours of operation (11 Ah).
 
 **Right device:** Stationary device for long term monitoring.
-Hardware configuration: Pettersson M500 (500 kHz. M500 is normally for Windows only, but can be used here.), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application (work in progress).
-
-The CloudedBats software feature list is here: https://github.com/cloudedbats/cloudedbats_wurb
+Hardware configuration: Pettersson M500 (500 kHz. M500 is normally for Windows only, but can be used here.), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application (work in progress). It is also possible to access the unit via SSH and SFTP (for file transfer) from any computer in the local network, or remotely if the network is setup for external access.
 
 ## Resources
 
