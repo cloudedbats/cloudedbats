@@ -3,6 +3,9 @@
 Welcome to CloudedBats. 
  
 CloudedBats is a software project where I develop free and open source code for bat monitoring. The project's goal is to cover many aspects of bat monitoring; data capture, data management and analysis, cloud storage and publishing of data and results as open data.
+
+This poster for EBRS 2017, the 14:th European Bat Research Symposium, gives an overview of the entire project: [EBRS 2017 Poster](https://github.com/cloudedbats/cloudedbats/blob/master/doc/EBRS2017_CloudedBats_poster_FINAL.pdf).
+
  
 CloudedBats consists of three main parts:
  
