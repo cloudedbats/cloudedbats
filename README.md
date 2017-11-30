@@ -1,120 +1,166 @@
 # CloudedBats - free software for bat monitoring
 
-Welcome to CloudedBats. 
+Welcome to CloudedBats.
+
+Bats have became my new hobby. They are extremely fascinating mammals, and we need to know more about them. But it's hard to study bats without a lot of technical stuff. 
+
+When searching for advanced bat detectors I realised that there are many alternatives, but all of them are really expensive and without the processing capacity I was looking for. Therefore, I decided to build my own system. I have been working as a software developer for many years and this is a great opportunity to upgrade my "personal toolbox" and include things like Raspberry Pi, digital signal processing, cloud computing and machine learning. 
+
+I'm using the programming language Python for all software in the project and the code is divided into several GitHub repositories under the GitHub organisation https://github.com/cloudedbats 
+
+The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects. 
+
+## Bats
+
+It all started at a local bat walk in the botanical garden in Gothenburg, Sweden. It was in August 2015. After that I started to read about bats and bought my first heterodyne detector to find out what's flying around our house at night. << link to image:books >>
+
+The most common bat species where I live is definitely the Northern bat, *Eptesicus nilssonii* (or at least the one that is easiest to detect). The nice little Brown long-eared bat, *Plecotus auritus*, is hibernating during winter in an underground storehouse 15 m from our house. One or two Myotis species lives nearby and a few other species are more or less regularly passing by.
+
+<Image>  images/Plecotus_auritus_sweden.jpg CloudedBats.org CC-BY.
+
+After two years of reading, recording and analysing bat sounds, following the Swedish bat Facebook group, some meetings/workshops with Swedish bat enthusiasts, and finally joining EBRS 2017 (the 14:th European Bat Research Symposium) and the following Bat detector workshop in Bidarray I think I'm prepared to dive into the more cloudy part of the project.
+
+## Main scenario and project requirements
+
+When designing new software systems there are two main approaches. One is to take something existing and improve it step by step. Another way to do it is to set up a distant goal and try to get there without looking back too much. 
+
+The basic idea for the CloudedBats project is to think like this: If someone ask me to build a completely new system for bat monitoring, based on techniques available today, what hardware/platforms and software libraries should I then use for it.
+
+### Scenario
+
+A fictive, but realistic, scenario:
+
+"We want to investigate bats in a tropical region with more than 100 known species. 100 passive detectors should be used during two years and they should be moved to new places each week following a predefined schema. We don't have reference sound recordings for the majority part of the species in the area. Therefore we need fast data analysis that gives us the possibility to go to a place some days after to catch bats, mark them and record new reference sound files. Locally there is a group of people working with environmental conservation and wildlife guiding as well as a small a group of technicians. Bat experts and researchers are spread over the world. Alternatives to air travel should always be considered. Collected data should be published for free to be used in many research projects, both during the survey and afterwards."
+
+The total amount of data collected if all detectors are running 12 hours per night is 3153.6 TB or 876000 hours of ultrasonic sound. That's a huge amount of data. Calculation: 100 detectors * 365 days * 2 year * 12 hours per night * 3600 sec per hour * 500 kHz * 16 bits / 8 bits per byte.
+
+### Requirements
+
+From this scenario some basic requirements can be defined:
+
+- The detectors used for passive monitoring must be easy to handle.
+- Data must be processed more or less automatically.
+- Results in a compressed format should be sent and shared over Internet.
+- Metrics from recorded sound should be extracted automatically at different timescales.
+- Similar sound must be grouped together to avoid too much space needed for long time storage. This is also used to reduce the amount of data needed to be sent over Internet.
+- Extracted metrics must be stored in formats that make it possible to apply extensive statistical analysis.
+- High resolution wave files must be handled and stored for species identification activities.
+- Metadata for the whole survey must be stored and published together with other results.
  
-CloudedBats is a software project where I develop free and open source code for bat monitoring. The project's goal is to cover many aspects of bat monitoring; data capture, data management and analysis, cloud storage and publishing of data and results as open data.
+## CloudedBats - software parts
 
-This poster for EBRS 2017, the 14:th European Bat Research Symposium, gives an overview of the entire project: [EBRS 2017 Poster](https://github.com/cloudedbats/cloudedbats/blob/master/doc/EBRS2017_CloudedBats_poster_FINAL.pdf).
+At the EBRS 2017 symposium I had a poster presenting the CloudedBats project. The poster provides an overview of the entire project: "EBRS 2017 Poster".
 
- 
-CloudedBats consists of three main parts:
- 
-### - Recording units
+The following subheadings are based on the 10 steps described in the poster, but with further and more updated information. 
 
-The recording units are used for passive monitoring to record long sequences of ultrasonic sound in FS (Full Spectrum) or TE (Time Expanded) mode. The recording units can be used in standalone mode or connected to a web server. Since the software can run on most Linux systems the price can be relative low and clusters of recording units can be used.
+### 1. Ultrasonic microphone
 
-Development status: Works well as standalone units. Web integration in progress.
+Bats are smart animals. Therefore, they adapt their sounds according to the prerequisites, and although there are some typical sound elements for many species, there are many sounds that overlap between species. Another thing that makes it complicated is the fact that an audio image looks different depending on the distance to the microphone. There are a lot of other factors like temperature, humidity, and even the angle towards the microphone that can make identical sounds look different. Therefore, it is good to have high quality microphones that do not distort the signal further, and it is especially true if we want to make sound analysis automatically.
 
-Images below. Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb
- 
-### - Web page
-The main purpose for the web page is to control a number of recording units and to visualise bat activities on different time scales. Modules for data management and surveys are planned.
+I have decided to use USB connected ultrasonic microphones and Pettersson M500-384 (running at 384 kHz) is the one that I use most of the time. Sometimes a sampling frequency of 500 kHz is needed, and Pettersson USB microphone M500 can handle that (with some low level coding since it is designed to run on Windows only and the recording unit I use is running Linux). 
 
-Development status: Basic design finished and test server is running. Integration with recording units in progress. Other modules later.
+### 2.  Detector for passive monitoring
 
-Test server: http://test.cloudedbats.org 
+I have used my own design of a detector for passive monitoring during the bat seasons 2016 and 2017. 
 
-Feature list, source code, etc.: https://github.com/cloudedbats/cloudedbats_web
- 
-### - Cloud storage and processing
-Today, there are many interesting alternatives for storage and computation of large amounts of data in the cloud. When working with clusters of detectors, we will need that capacity.
+The development of the detector (called WURB, Wireless Ultrasonic Recorder for Bats) is more or less finished for my own purposes and I regularly use three units myself as passive detectors. Before the start of the 2018 bat season the plans are to fix some more bugs, clean up the structure of users settings parameters and write a short user manual. All kind of feedback are welcome. If someone want to help with the user manual, it would be great.
 
-Development status: Planning.
+This is a short description of the hardware from the EBRS 2017 poster: 
+"Microphone (350€+VAT), Raspberry Pi 3B computer (40€), case (10€), Micro-SD for software (15€), USB memory for sound files (15€), GPS (20€). Any power supply for smartphones can be used, for example a mobile phone charger or a powerbank (10-30€)."
 
-## WURB - Wireless Ultrasonic Recorder for Bats
+<image>
 
-All kind of software must be deployed on some hardware. For the recording unit the Raspberry Pi is a perfect choice since it is powerful, available everywhere and not very expensive. The ultrasonic microphone is the most important part in the setup and this is where you should spend your money. For professional use the sampling frequency of 384 kHz is enough for European bats and 500 kHz is needed for some other species. For backyard monitoring 192 kHz will work to detect peak frequencies for many bats. Choose a sensitive one with a good signal to noise ratio.
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb 
 
-### First recording unit ###
+### 3.  DSP, Digital Signal Processing
 
-![WURB-A001](images/WURB-A001-web.jpg?raw=true  "WURB - Wireless Ultrasonic Recorder for Bats")
-Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+DSP is about working with digitalised sound in both the time domain and in the frequency domain. In the frequency domain it is possible to extract, for example, start and end frequencies and other things that can be checked when looking at a spectrogram.
 
-The image above is my first WURB (from early 2016). The setup was as follows:
-- [Raspberry Pi 3 B.](https://www.raspberrypi.org/products/raspberry-pi-3-model-b) This version includes WiFi and Bluetooth on the board.
-- Microphone: [Pettersson M500-384 USB Ultrasound Microphone. 384 kHz at 16 bits.](http://batsound.com/?p=125)
-- USB memory 32 GB for recorded sound files (wav-files). Enough for 10 hours of continuous recording.
-- Powerbank. 2200 mAh, in/out: 5V, 1A. Enough for about 3 hours.
-- Micro SD card with Linux (Raspbian Jessie Lite) and the CloudedBats software.
-- Raspberry Pi Case and some Velcro to keep the microphone in place. 
+I CloudedBats we need DSP at different steps in the data flow. 
 
-This early version contained a web server for configuration and control from any device in the local network running a web browser. This solution was later replaced by more practical alternatives for configuration and control. 
+- In the recording unit there is a need to separate timeslots with sound and silent slots. 
+- We also want to separate bat sound from other sounds like wind blowing in the leaves, rain, running water, insects, ultrasonic sound from electronic equipment, etc.
+- There is a need for extracting metrics from both single sound pulses and sequences of pulses. 
+- Another usage is to reduce the amount of data needed to be sent over Internet for visualisation purposes. You don't need to use the full frequency file just to display some points in a diagram to show the shape of the pulses in a sequence of pulses. Zero Crossing, ZC, is a good example of this.
+- When working with Machine Learning an important part is called "feature engineering". In CloudedBats we have the possibility to put the feature engineering part in the recording unit and then run the machine learning algorithms in the cloud. 
 
-### Devices for the bat season 2017 ###
+DSP is quite complicated and I have not worked with it before, but it's one of the most important pieces in the puzzle when building an automatic data flow for bat sound.
 
-![WURB-A001](images/CloudedBats_hw_2017.jpg?raw=true  "Recording devices for 2017")
-Image: CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+Courses: 
 
-For field tests during 2017, I will use three different recording units. The software used is the same for all three devices, but the hardware configuration differs to match three different usage cases.
+- https://www.coursera.org/learn/audio-signal-processing (This is a very theoretical course covering the mathematics behind FFT in combination with demonstrations and code examples.) 
+- https://www.coursera.org/learn/dsp (Great examples in Jupyter notebooks based on numpy/scipy.)
 
-**Left device:** The unit will be lent to friends and others who are interested in knowing more about what is flying in their garden and elsewhere. It must therefore be as easy as possible to handle.
-Hardware configuration: Microphone Pettersson M500-384 (384 kHz), RaspberryPi2B, no WiFi, GPS (an old version), 32 GB USB Memory. Most power sources used for smart phones can be used.
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dsp  
 
-Short usage description: Both switches in the middle position and connect power. GPS gives input to the scheduler to start at sunset and stop at sunrise. Recordings starts automatically when sound above 15 kHz are detected, including buffered sound before and after. All sound files are named with time and position. When done, move the RPi switch to 'Off' and disconnect power. Move the USB memory to a computer for analysis. (Personally I use the free software Sonic Visualiser (http://www.sonicvisualiser.org/) for analysis.)
+### 4.  Presentation and visualisation
 
-**Center device:** Mobile unit for transects and overnight at places of interest.
-Hardware configuration: Pettersson M500-384 (384 kHz), RaspberryPi3B, WiFi, GPS/Galileo, 64 GB USB memory, wireless mouse for remote control. Power bank for more than 12 hours of operation (11 Ah).
+My previous plan for 2017 was to develop a web server used to manage up to about ten recording units. Instead I will focus on the dataflow in the cloud. When that dataflow is up and running it is much easier to develop new web application for different purposes, based on public API:s to access results from the monitoring activities.
 
-**Right device:** Stationary device for long term monitoring.
-Hardware configuration: Pettersson M500 (500 kHz. M500 is normally for Windows only, but can be used here.), RaspberryPi3B, WiFi, no GPS (position via settings), 1 TB USB disc (enough for a whole season). Powered by 12 V car battery (note the battery protection device to protect the battery against deep discharge). The stationary device should continuously report bat activities to the web application (work in progress). It is also possible to access the unit via SSH and SFTP (for file transfer) from any computer in the local network, or remotely if the network is setup for external access.
+One basic idea for CloudedBats is to not use installed applications on personal computers. Any device that can run a web browser should be enough. If someone must take the SD card and process it on their computer at home or at the office the data flow will be much slower.
 
-## Resources
+In early 2017 I put together a prototype for a web application. Right now it is running on a virtual server running Ubuntu, but I will try to move it to Google Kubernetes Engine. 
+The prototype can be found here: http://test.cloudedbats.org/bat_activity 
 
-GitHub is used as a project platform and source code repository by many open source projects and by developers of open source libraries. CloudedBats is build as at thin layer on top of many of these libraries. The CloudedBats project is also stored on GitHub as a GitHub organisation. Link to the CloudedBats organisation: https://github.com/cloudedbats
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_web 
 
-The CloudedBats organisation is divided into a number of repositories for documentation and/or software code. These repositories can be seen as subprojects, and they are:
+### 5.  Species lists
 
-- **https://github.com/cloudedbats/cloudedbats**
-This repository. Contains some info about the project. The web domain http://cloudedbats.org also points to this repository.
+A species list to be used as a taxonomic backbone is needed when working with species. CloudedBats uses the IUCN Red List of Threatened Species for this: http://test.cloudedbats.org/species 
 
-- **https://github.com/cloudedbats/cloudedbats_wurb** 
-Contains software and documentation for the recording unit. The recording unit is called WURB - Wireless Ultrasonic Recorder for Bats.
+One reason for this is that I think this is one of the best species list on a globally level that is constantly maintained. Another reason is that there is a software API that can be programmatically called. 
 
-- **https://github.com/cloudedbats/cloudedbats_web**
-Contains software and documentation for the web page. 
+### 6.  Reference libraries for bat sound
 
-- **https://github.com/cloudedbats/cloudedbats_dsp** 
-DSP - Digital Signal Processing is important when sound should be automatically analysed. This repository will contain experimental code and software used to process Wave files. Results will later be implemented in the WURB, on the web and in the cloud.
+It is not possible to train computers to identify bats without reference libraries of sound. They are difficult and expensive to develop and must probably be based on caught and marked bats. For the CloudedBats project I need high resolution wave file as reference files. 
 
-- **https://github.com/cloudedbats/cloudedbats_cloud** 
-The cloud will be used for storage and processing of recorded data. Future work.
+There exists some databases containing extracted metrics only. They can't be used since modern algorithms can handle hundreds or thousands of parameters/features extracted from a sound file. After a careful feature engineering activity maybe the number of used features are reduced, but they will probably differ from the parameters stored in these databases.
 
-- **https://github.com/cloudedbats/backyardbats** 
-Contains Raspberry Pi related stuff. 
-The web domain name http://backyardbats.org points here.
-At the moment the software stored here is not needed to set up a CloudedBats system. 
+### 7.  Species identification - Machine/Deep Learning
 
-## Timeline
+This seems to be nearly impossible for some species, even for the limited amount of species found in Europe. But the development of new machine learning algorithms takes place quickly.
 
-#### Past
-Year 2015: Visited two local bat nights in august 2015. Bought my first heterodyne detector and some books on the topic. Searched for a suitable more advanced detector, but there was no one with internet connection and processing capacity. Decided to build my own based on the Raspberry Pi platform. I was mainly inspired by this page 
-http://www.afraidofsunlight.co.uk/weather/index.php?page=bat
+But we can use Machine/Deep Learning to work with huge amounts of recorded data without the need for established reference libraries of sound. Instead of using reference libraries we can use the computers to group together similar sounds from a huge dataset and the bat specialist only have to check some of them.
 
-Year 2016: Was thinking a lot about how to build an ultrasonic microphone (by using a 500 kHz ADC and the Raspberry Pi PCI interface). But I'm a software developer, not a hardware designer, and when the Pettersson M500-385 was released I bought one directly. Started to record in the beginning of the bat season and tried to learn more about bats and their sound. Species identification is harder than I earlier thought. Even in Sweden with a limited number of species a lot of them are nearly impossible to identify by analysing sound only.
+Working with Machine/Deep Learning is a craftsmanship where you need to practice your skills. It's probably takes as long to get skilled in this area as it does to become a skilled bat worker.
 
-#### In progress
-During 2017 the plans are to develop a web application that can interact with a number of recording units. For test I will use three recording units, two running at 384 kHz and one at 500 kHz. A web server for test and development is already set up, running in a virtual cloud server. The different parts in the web application will be added when they are ready for test. The web application can be found here: http://test.cloudedbats.org
+Book: "Hands-On Machine Learning with Scikit-Learn and TensorFlow" by Aurelien Geron.
 
-#### Future
-A huge amount of data will be produced when using multiple recording units for many nights. Therefore, the natural next step is to develop systems for automatic processing of recorded data and tools for visualising the results. (I'm planning to develop something with scipy/numpy, scikit-learn and bokeh.)
+Courses: There are many available at https://www.coursera.org/ (but so far I have only followed the shorter ones embedded in "gcp-data-machine-learning" mentioned below.)
 
-## Licenses and my motivation
+### 8.  Storage and processing in the cloud
 
-The CloudedBats software is released under the MIT license. This means that you are free to use it as you want, even in commercial applications. The only restrictions are that you are not allowed to remove or change the license if you use "substantial portions" of the code, and there is no warranty of any kind connected to the code.
+In the CloudedBats project I'm trying to eliminate the time-consuming work of moving memory cards from detectors to personal computers for analysis. Instead, the recording unit should be smart enough to automatically feed a dataflow into the cloud. Wave files (Time Expanded or Full Scan) are still stored on the USB memory connected to the recording unit, but a user should know in advance which files are of interest based on metrics already sent to the cloud. High resolution wave files of interest should be possible to order from the 	recording unit for upload to the cloud and later download for deeper analysis.
 
-I'm strongly believe in open and free software as well as free data. Therefore I encourage you to release your data under the Creative Commons licenses, CC0 or CC-BY. One of the largest collections of biological data, Gbif.org, have implemented CC0 or CC-BY as the default licenses during the last years. It makes a lot of things easier if you assign one of those licenses to your data as early as possible in the data flow.
+This kind of data flow could then be used for different purposes. For the case in the main scenario to handle large amounts of data during an ongoing survey, but also to build systems presenting graphics for bat activities from detectors placed at places of public interest. For example in a botanical garden or a city park near water.
 
-My personal motivation for the project is learning by doing. I want to learn more about bats, but also about my favourite programming language Python, biological environmental monitoring in general and how to handle and share huge amounts of data.
+The cloud system for CloudedBats will be based on the "Google Cloud Platform". Components to be used are "Cloud Storage", "Cloud Pub/Sub", "Cloud DataFlow", "BigQuery" and "Cloud Machine Learning", etc.
+
+- Course: https://www.coursera.org/specializations/gcp-data-machine-learning 
+
+- Book: "Data Science on the Google Cloud Platform" by Valliappa Lakshmanan. (Will be published in January 2018).
+
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_cloud 
+
+### 9.  Survey results, reporting formats
+
+Inventory reports, scientific articles and data papers contain a lot of important data that has better impact if it is spread. CloudedBats will have support for the exchange data format DarwinCore-Archive, DwC-A. 
+
+I'm have done some work using DarwinCore-Archive for marine biological monitoring data and I think this is the most promising format today for data exchange regarding biological monitoring data.
+
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dwca 
+
+### 10.  Storage for future generations
+
+Natural History Museums have collected and stored specimens of flowers, insects and birds for centuries. Recently, the museums also have started to store digital information, such as images and DNA sequences. Therefore, I think the Natural History Museums are well adapted for managing reference recordings of bat sounds. 
+
+National GBIF (Global Biodiversity Information Facility) nodes use the DarwinCore-Archive format for data exchange and there is an existing infrastructure to handle and indexing results from surveys, etc. 
+
+### Final project goal
+
+The CloudedBats software project is finished when I have developed software for the complete data flow from the ultrasonic microphone to quality approved results stored at GBIF.org (https://www.gbif.org/occurrence/search?taxon_key=734) for public use.
+
+When this is done I probably need a new, and less demanding, hobby...
 
 ## About the name *CloudedBats*
 
