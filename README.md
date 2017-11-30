@@ -12,11 +12,12 @@ The CloudedBats software is completely open and free and you can use it as you w
 
 ## Bats
 
-It all started at a local bat walk in the botanical garden in Gothenburg, Sweden. It was in August 2015. After that I started to read about bats and bought my first heterodyne detector to find out what's flying around our house at night. << link to image:books >>
+It all started at a local bat walk in the botanical garden in Gothenburg, Sweden. It was in August 2015. After that I started to read about bats and bought my first heterodyne detector to find out what's flying around our house at night. [Some books.](images/bat_books_2017.jpg)
 
 The most common bat species where I live is definitely the Northern bat, *Eptesicus nilssonii* (or at least the one that is easiest to detect). The nice little Brown long-eared bat, *Plecotus auritus*, is hibernating during winter in an underground storehouse 15 m from our house. One or two Myotis species lives nearby and a few other species are more or less regularly passing by.
 
-<Image>  images/Plecotus_auritus_sweden.jpg CloudedBats.org CC-BY.
+![Plecotus auritus](images/Plecotus_auritus_sweden.jpg?raw=true  "*Plecotus auritus*")
+*Plecotus auritus* hibernating near our house. Potatoes, bats and the spider *Meta menardi* are enjoying the same environment during winter. CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
 After two years of reading, recording and analysing bat sounds, following the Swedish bat Facebook group, some meetings/workshops with Swedish bat enthusiasts, and finally joining EBRS 2017 (the 14:th European Bat Research Symposium) and the following Bat detector workshop in Bidarray I think I'm prepared to dive into the more cloudy part of the project.
 
@@ -49,7 +50,8 @@ From this scenario some basic requirements can be defined:
  
 ## CloudedBats - software parts
 
-At the EBRS 2017 symposium I had a poster presenting the CloudedBats project. The poster provides an overview of the entire project: "EBRS 2017 Poster".
+At the EBRS 2017 symposium I had a poster presenting the CloudedBats project. The poster provides an overview of the entire project: 
+[EBRS 2017 Poster](doc/EBRS2017_CloudedBats_poster_FINAL.pdf).
 
 The following subheadings are based on the 10 steps described in the poster, but with further and more updated information. 
 
@@ -65,10 +67,11 @@ I have used my own design of a detector for passive monitoring during the bat se
 
 The development of the detector (called WURB, Wireless Ultrasonic Recorder for Bats) is more or less finished for my own purposes and I regularly use three units myself as passive detectors. Before the start of the 2018 bat season the plans are to fix some more bugs, clean up the structure of users settings parameters and write a short user manual. All kind of feedback are welcome. If someone want to help with the user manual, it would be great.
 
+![WURB-A001](images/WURB-A001-web.jpg?raw=true  "CloudedBats recording unit.")
+The first WURB from 2016. CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+
 This is a short description of the hardware from the EBRS 2017 poster: 
 "Microphone (350€+VAT), Raspberry Pi 3B computer (40€), case (10€), Micro-SD for software (15€), USB memory for sound files (15€), GPS (20€). Any power supply for smartphones can be used, for example a mobile phone charger or a powerbank (10-30€)."
-
-<image>
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb 
 
