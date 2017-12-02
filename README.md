@@ -23,9 +23,7 @@ After two years of reading, recording and analysing bat sounds, following the Sw
 
 ## Main scenario and project requirements
 
-When designing new software systems there are two main approaches. One is to take something existing and improve it step by step. Another way to do it is to set up a distant goal and try to get there without looking back too much. 
-
-The basic idea for the CloudedBats project is to think like this: If someone ask me to build a completely new system for bat monitoring, based on techniques available today, what hardware/platforms and software libraries should I then use for it.
+When designing new software systems there are two main approaches. One is to take something existing and improve it step by step. Another way to do it is to set up a distant goal and try to get there without looking back too much. The basic idea for the CloudedBats project is to think like this: If someone ask me to build a completely new system for bat monitoring, based on techniques available today, what hardware/platforms and software libraries should I then use for it.
 
 ### Scenario
 
@@ -98,7 +96,7 @@ CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dsp
 
 ### 4.  Presentation and visualisation
 
-My previous plan for 2017 was to develop a web server used to manage up to about ten recording units. Instead I will focus on the dataflow in the cloud. When that dataflow is up and running it is much easier to develop new web application for different purposes, based on public API:s to access results from the monitoring activities.
+My previous plan for 2017 was to develop a web server used to manage up to about ten recording units. Instead I will focus on the dataflow in the cloud. When that dataflow is up and running it is much easier to develop new web applications for different purposes, based on public API:s to access results from the monitoring activities.
 
 One basic idea for CloudedBats is to not use installed applications on personal computers. Any device that can run a web browser should be enough. If someone must take the SD card and process it on their computer at home or at the office the data flow will be much slower.
 
@@ -111,7 +109,7 @@ CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_web
 
 A species list to be used as a taxonomic backbone is needed when working with species. CloudedBats uses the IUCN Red List of Threatened Species for this: http://test.cloudedbats.org/species 
 
-One reason for this is that I think this is one of the best species list on a globally level that is constantly maintained. Another reason is that there is a software API that can be programmatically called. 
+One reason for this is that I think this is one of the best species list on a global level that is constantly maintained. Another reason is that there is a software API that can be programmatically called. 
 
 ### 6.  Reference libraries for bat sound
 
@@ -141,7 +139,7 @@ The cloud system for CloudedBats will be based on the "Google Cloud Platform". C
 
 - Course: https://www.coursera.org/specializations/gcp-data-machine-learning 
 
-- Book: "Data Science on the Google Cloud Platform" by Valliappa Lakshmanan. (Will be published in January 2018).
+- Book: "Data Science on the Google Cloud Platform" by Valliappa Lakshmanan. (Will be published in January 2018. Mainly the same content as in the Coursera/Google course.).
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_cloud 
 
@@ -149,7 +147,7 @@ CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_cloud
 
 Inventory reports, scientific articles and data papers contain a lot of important data that has better impact if it is spread. CloudedBats will have support for the exchange data format DarwinCore-Archive, DwC-A. 
 
-I'm have done some work using DarwinCore-Archive for marine biological monitoring data and I think this is the most promising format today for data exchange regarding biological monitoring data.
+I have done some work using DarwinCore-Archive for marine biological monitoring data and I think this is the most promising format today for data exchange regarding biological monitoring data.
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dwca 
 
@@ -161,7 +159,7 @@ National GBIF (Global Biodiversity Information Facility) nodes use the DarwinCor
 
 ### Final project goal
 
-The CloudedBats software project is finished when I have developed software for the complete data flow from the ultrasonic microphone to quality approved results stored at GBIF.org (https://www.gbif.org/occurrence/search?taxon_key=734) for public use.
+The CloudedBats software project is finished when I have developed software for the complete data flow from the ultrasonic microphone to quality approved results stored at GBIF.org (https://www.gbif.org/occurrence/search?taxon_key=734).
 
 When this is done I probably need a new, and less demanding, hobby...
 
@@ -179,3 +177,8 @@ But all living species, including humans and bats, should in some sense be *clou
 Arnold Andreasson, Sweden.
 
 info@cloudedbats.org
+
+<br/>
+<p align="center">
+  <img src="images/logo/cloudedbats_logo_original-text_gimp.png" align="center" width="150">
+</p>
