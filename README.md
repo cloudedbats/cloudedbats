@@ -8,7 +8,7 @@ When searching for advanced bat detectors I realised that there are many alterna
 
 I'm using the programming language Python for all software in the project and the code is divided into several GitHub repositories under the GitHub organisation https://github.com/cloudedbats 
 
-The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects. (Contact info below.)
+The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects (contact info below).
 
 ## Bats
 
@@ -159,7 +159,7 @@ The cloud system for CloudedBats will be based on the "Google Cloud Platform". C
 
 - Course: https://www.coursera.org/specializations/gcp-data-machine-learning 
 
-- Book: "Data Science on the Google Cloud Platform" by Valliappa Lakshmanan. (Will be published in January 2018. Mainly the same content as in the Coursera/Google course.).
+- Book: "Data Science on the Google Cloud Platform" by Valliappa Lakshmanan. (Mainly the same content as in the Coursera/Google course.).
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_cloud 
 
