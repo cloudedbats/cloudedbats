@@ -8,11 +8,11 @@ When searching for advanced bat detectors I realised that there are many alterna
 
 I'm using the programming language Python for all software in the project and the code is divided into several GitHub repositories under the GitHub organisation https://github.com/cloudedbats 
 
-The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects. 
+The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects. (Contact info below.)
 
 ## Bats
 
-It all started at a local bat walk in the botanical garden in Gothenburg, Sweden. It was in August 2015. After that I started to read about bats and bought my first heterodyne detector to find out what's flying around our house at night. [Some books.](images/bat_books_2017.jpg)
+It all started at a local bat walk in the botanical garden in Gothenburg, Sweden. It was in August 2015. After that I started to read about bats and bought my first heterodyne detector to find out what's flying around our house at night. 
 
 The most common bat species where I live is definitely the Northern bat, *Eptesicus nilssonii* (or at least the one that is easiest to detect). The nice little Brown long-eared bat, *Plecotus auritus*, is hibernating during winter in an underground storehouse 15 m from our house. One or two Myotis species lives nearby and a few other species are more or less regularly passing by.
 
@@ -57,7 +57,7 @@ The following subheadings are based on the 10 steps described in the poster, but
 
 Bats are smart animals. Therefore, they adapt their sounds according to the prerequisites, and although there are some typical sound elements for many species, there are many sounds that overlap between species. Another thing that makes it complicated is the fact that an audio image looks different depending on the distance to the microphone. There are a lot of other factors like temperature, humidity, and even the angle towards the microphone that can make identical sounds look different. Therefore, it is good to have high quality microphones that do not distort the signal further, and it is especially true if we want to make sound analysis automatically.
 
-I have decided to use USB connected ultrasonic microphones and Pettersson M500-384 (running at 384 kHz) is the one that I use most of the time. Sometimes a sampling frequency of 500 kHz is needed, and Pettersson USB microphone M500 can handle that (with some low level coding since it is designed to run on Windows only and the recording unit I use is running Linux). 
+I have decided to use USB connected ultrasonic microphones and Pettersson M500-384 (running at 384 kHz) is the one that I use most of the time. Sometimes a sampling frequency of 500 kHz is needed, and Pettersson USB microphone M500 can handle that (with some low level coding since the M500 mic. is designed to run on Windows only and the recording unit I use is running Linux). 
 
 ### 2.  Detector for passive monitoring
 
@@ -72,6 +72,10 @@ This is a short description of the hardware from the EBRS 2017 poster:
 "Microphone (350€+VAT), Raspberry Pi 3B computer (40€), case (10€), Micro-SD for software (15€), USB memory for sound files (15€), GPS (20€). Any power supply for smartphones can be used, for example a mobile phone charger or a powerbank (10-30€)."
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb 
+
+#### What's happening right now:
+
+Updated 2018-03-18: We still have a lot of snow outside, but I'm planning for an upgrade that can be tested on real bats during April and early May. The plans are improved sound processing to detect sound, better and easier to understand config/settings, instructions for developers, and a user manual.
 
 ### 3.  DSP, Digital Signal Processing
 
@@ -94,6 +98,10 @@ Courses:
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dsp  
 
+#### What's happening right now:
+
+Updated 2018-03-18: I have developed a Python lib called 'dsp4bats'. It works well if the sound is relatively clean above a user defined frequency level. The same code in the 'dsp4bats' lib can be used to produce spectrograms, peak diagrams (similar to ZC) and to extract metrics. I'm working on support for extracting multiple harmonics and to handle noisier recordings without the need for a specific frequency threshold, which is mandatory for an automated data flow. But that's a real challenge to do.
+
 ### 4.  Presentation and visualisation
 
 My previous plan for 2017 was to develop a web server used to manage up to about ten recording units. Instead I will focus on the dataflow in the cloud. When that dataflow is up and running it is much easier to develop new web applications for different purposes, based on public API:s to access results from the monitoring activities.
@@ -104,6 +112,10 @@ In early 2017 I put together a prototype for a web application. Right now it is 
 The prototype can be found here: http://test.cloudedbats.org/bat_activity 
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_web 
+
+#### What's happening right now:
+
+Updated 2018-03-18: I have completely failed in my ambitions to not include a desktop application in the CloudedBats setup, sorry for that. (I really want to develop a system that works for all those great people working with biology, but really hates to install software on desktop computers). The desktop application will run on Windows, MacOS, Linux (Ubuntu) as single file executables. I have just started the development and the repository can be found here: https://github.com/cloudedbats/cloudedbats_desktop_app
 
 ### 5.  Species lists
 
@@ -117,6 +129,10 @@ It is not possible to train computers to identify bats without reference librari
 
 There exists some databases containing extracted metrics only. They can't be used since modern algorithms can handle hundreds or thousands of parameters/features extracted from a sound file. After a careful feature engineering activity maybe the number of used features are reduced, but they will probably differ from the parameters stored in these databases.
 
+#### What's happening right now:
+
+Updated 2018-03-18: Maybe reference libraries will work for the limited amount of European bat species. When recording in other ecological regions we probably will need both FS recordings and an identification level before the species identification to group similar sound together. For example on a format of this type: "40 st.cFM" for some *Mineopterus* species in some region. Maybe it is possible to do this first step of classification automatically and the let the experts do the final step to species level. From my point of view this is some kind of "feature engineering" similar to what's needed for a future automatic classification base on more data than the sound itself.
+
 ### 7.  Species identification - Machine/Deep Learning
 
 This seems to be nearly impossible for some species, even for the limited amount of species found in Europe. But the development of new machine learning algorithms takes place quickly.
@@ -128,6 +144,10 @@ Working with Machine/Deep Learning is a craftsmanship where you need to practice
 Book: "Hands-On Machine Learning with Scikit-Learn and TensorFlow" by Aurelien Geron.
 
 Courses: There are many available at https://www.coursera.org/ (but so far I have only followed the shorter ones embedded in "gcp-data-machine-learning" mentioned below.)
+
+#### What's happening right now:
+
+Updated 2018-03-18: I'm still reading and trying to learn. AI, Artificial Intelligence, like Machine/Deep Learning is a kit of extremely powerful tools to be used. But we still need a lot of HI, Human Intelligence, to use it in the right way, and garbage in will produce garbage out, as always.
 
 ### 8.  Storage and processing in the cloud
 
@@ -143,6 +163,10 @@ The cloud system for CloudedBats will be based on the "Google Cloud Platform". C
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_cloud 
 
+#### What's happening right now:
+
+Updated 2018-03-18: Have decided what platform and software components I want to use. The Desktop application mentioned above will be used as a prototype for things that later will be moved to the cloud. 
+
 ### 9.  Survey results, reporting formats
 
 Inventory reports, scientific articles and data papers contain a lot of important data that has better impact if it is spread. CloudedBats will have support for the exchange data format DarwinCore-Archive, DwC-A. 
@@ -150,6 +174,10 @@ Inventory reports, scientific articles and data papers contain a lot of importan
 I have done some work using DarwinCore-Archive for marine biological monitoring data and I think this is the most promising format today for data exchange regarding biological monitoring data.
 
 CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dwca 
+
+#### What's happening right now:
+
+Updated 2018-03-18: I have working solutions for this in other projects, but need to adapt it to fit bat surveys. It will initially be implemented in the desktop application.
 
 ### 10.  Storage for future generations
 
