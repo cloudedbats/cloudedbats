@@ -81,7 +81,7 @@ Updated 2018-03-18: We still have a lot of snow outside, but I'm planning for an
 
 DSP is about working with digitalised sound in both the time domain and in the frequency domain. In the frequency domain it is possible to extract, for example, start and end frequencies and other things that can be checked when looking at a spectrogram.
 
-I CloudedBats we need DSP at different steps in the data flow. 
+In CloudedBats we need DSP at different steps in the data flow. 
 
 - In the recording unit there is a need to separate timeslots with sound and silent slots. 
 - We also want to separate bat sound from other sounds like wind blowing in the leaves, rain, running water, insects, ultrasonic sound from electronic equipment, etc.
@@ -173,7 +173,7 @@ Inventory reports, scientific articles and data papers contain a lot of importan
 
 I have done some work using DarwinCore-Archive for marine biological monitoring data and I think this is the most promising format today for data exchange regarding biological monitoring data.
 
-CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_dwca 
+CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_darwincore 
 
 #### What's happening right now:
 
