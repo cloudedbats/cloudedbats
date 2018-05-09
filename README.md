@@ -75,6 +75,8 @@ CloudedBats source code, etc.: https://github.com/cloudedbats/cloudedbats_wurb
 
 #### What's happening right now:
 
+Updated 2018-05-09: The software update is finished and bats are flying. The recording module and the user settings part are improved and now it is much easier to write the user manual. New release soon...
+
 Updated 2018-03-18: We still have a lot of snow outside, but I'm planning for an upgrade that can be tested on real bats during April and early May. The plans are improved sound processing to detect sound, better and easier to understand config/settings, instructions for developers, and a user manual.
 
 ### 3.  DSP, Digital Signal Processing
