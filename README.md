@@ -61,7 +61,7 @@ I have decided to use USB connected ultrasonic microphones and Pettersson M500-3
 
 ### 2.  Detector for passive monitoring
 
-I have used my own design of a detector for passive monitoring during the bat seasons 2016 and 2017. 
+I have used my own design of a detector for passive monitoring since 2016. 
 
 A short presentation is included in this presentation from the norwegian workshop in 2018:
 [Three inexpensive detectors](doc/EABDW3_Three_Inexpensive_Bat_Detectors.pdf).
@@ -90,7 +90,7 @@ In CloudedBats we need DSP at different steps in the data flow.
 
 More info here: https://github.com/cloudedbats/cloudedbats_dsp  
 
-I'm planning to put the code for extracting sound components in this repository: https://github.com/cloudedbats/cloudedbats_dsp
+I'm planning to put the code for extracting sound components in this repository: https://github.com/cloudedbats/cloudedbats_sound
 
 ### 4.  Presentation and visualisation
 
@@ -108,9 +108,7 @@ I have started the development of the desktop application and the repository can
 
 ### 5.  Species lists
 
-A species list to be used as a taxonomic backbone is needed when working with species. CloudedBats uses the IUCN Red List of Threatened Species for this: http://test.cloudedbats.org/species 
-
-One reason for this is that I think this is one of the best species list on a global level that is constantly maintained. Another reason is that there is a software API that can be programmatically called. 
+A species list to be used as a taxonomic backbone is needed when working with species. CloudedBats uses the IUCN Red List of Threatened Species for this. One reason for this is that I think this is one of the best species list on a global level that is constantly maintained. Another reason is that there is a software API that can be programmatically called. 
 
 More info here (including an Excel file that can be used directly): https://github.com/cloudedbats/cloudedbats_species
 
@@ -119,8 +117,6 @@ More info here (including an Excel file that can be used directly): https://gith
 It is not possible to train computers to identify bats without reference libraries of sound. They are difficult and expensive to develop and must probably be based on caught and marked bats. For the CloudedBats project I need high resolution wave file as reference files. 
 
 There exists some databases containing extracted metrics only. They can't be used since modern algorithms can handle hundreds or thousands of parameters/features extracted from a sound file. After a careful feature engineering activity maybe the number of used features are reduced, but they will probably differ from the parameters stored in these databases.
-
-#### What's happening right now:
 
 Updated 2018-03-18: Maybe reference libraries will work for the limited amount of European bat species. When recording in other ecological regions we probably will need both FS recordings and an identification level before the species identification to group similar sound together. For example on a format of this type: "40 st.cFM" for some *Mineopterus* species in some region. Maybe it is possible to do this first step of classification automatically and the let the experts do the final step to species level. From my point of view this is some kind of "feature engineering" similar to what's needed for a future automatic classification based on more data than the sound itself.
 
