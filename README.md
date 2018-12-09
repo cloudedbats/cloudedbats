@@ -195,6 +195,125 @@ The CloudedBats software project is finished when I have developed software for 
 
 When this is done I probably need a new, and less demanding, hobby...
 
+# Software design 
+
+The requirements from the main scenario above forces the software to be designed to handle a data flow that is some magnitudes higher than what a single human can handle. Therefore I have to use powerful software tools. Most of them are new to me, but I want to learn more about them, and this project is a good way to do that. And since there is no deadline for the project I can take the time needed to do that. 
+
+## System overview
+
+The CloudedBats organisation at GitHub is divided into a number of repositories. They are related to each other as described in this overview:
+
+![System overview](doc/CloudedBats-system-overview.png?raw=true  "System overview")
+Software repositories for CloudedBats. CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+
+## Python and R
+
+The programming language Python is used for all software developed in the CloudedBats project. The reason is that it is open and free, runs on Linux, Windows and macOS, and it is a great language for scientific use with a huge amount of really good libraries. Another really good language is R that I recommend for people working mainly with data, statistics and visualisation of data. Python and R have a lot in common and it is easy to combine them. For example, let R take care of the final step in a data flow that is mainly handled by Python.
+
+CloudedBats is build on top of modern software libraries, and most of the best software developed in, for example, C and C++ have a corresponding wrapper that makes it accessible from Python. When looking for libraries to use I always starts to look at libraries at NumFOCUS (https://numfocus.org) and PyData (https://pydata.org/downloads/) since many of them are founded by numFOCUS. Together these libraries is a good stack of tools to use when working with scientific data.
+
+## GitHub repositories
+
+### WURB, Wireless Ultrasonic Recorder for Bats
+
+This is the main unit for data capture, i.e. to record sound from bats. I use a high quality ultrasonic microphone and inexpensive standard hardware like the Raspberry Pi computer.
+It is mainly designed for passive monitoring, but can also be used for transects, etc. 
+
+Status: Stable version including a short user documentation.
+
+Repository: cloudedbats_wurb
+
+
+## Pathfinder
+
+Pathfinder is a complement to the previous detected and it is should be used as a handheld detector. The Design goal for the pathfinder is to make it as simple as possible to operate. Basically the same hardware as the WURB, but a user can run it from a web browser by connecting to the WiFi connection shared by the Pathfinder.
+
+Status: Work in progress. A preliminary plan is to have a working unit before the 2019 bat season.  
+
+Repository: cloudedbats_pathfinder
+
+## Web
+
+The purpose of the web application is to serve a cluster of WURB detectors. 
+
+Status: Work in progress. A prototype for the user interface was developed some years ago, but nothing more after that. 
+
+Repository: cloudedbats_web
+
+## Desktop app
+
+This is a traditional application for desktop computers. Will cover all levels from project/survey to automatic processing of recorded files.
+
+Status: Work in progress. The framework for the user interface (Qt5) is finished and a small demo on how to plot a spectrogram from a wav file. It will be possible to build single file executables for Windows, macOS and Linux.
+
+Repository: cloudedbats_desktop_app
+
+## Cloud
+
+Google offers a very rich, powerful and cost effective infrastructure that can be used later in this project.  
+
+Status: For future work. Will be used to store data and for demanding calculations when clusters of processors are needed. Maybe also for streaming of real-time data from many detectors by using the Google Cloud infrastructure. 
+
+Repository: cloudedbats_cloud
+
+## Libraries:
+
+### dsp4bats
+
+Library for basic sound processing. 
+
+Status: Working both in the time and the frequency domains.
+Repository: cloudedbats_dsp
+
+### sound4bats
+
+Library to be used to extracting sound components from sound files.
+
+Status: Future work.
+Repository: cloudedbats_sound
+
+### ml4bats
+
+Library for machine and deep learning.
+
+Status: Future work.
+Repository: (cloudedbats_ml)
+
+### species4bats
+
+Library for taxonomic information regarding all Chiroptera species.
+
+Status: Working for all Chiroptera species in the IUCN Redlist database.
+Repository: cloudedbats_species
+
+### analysis4bats
+
+For analysis of extracted bat sound components.
+
+Status: Future work.
+Repository: cloudedbats_analysis
+
+### hdf54bats
+
+Library for data structures stored on disk based on HDF5. This is a better solution than running everything in memory, or to use a relational database.
+
+Status: Work in progress. I need it for the desktop application.
+Repository: cloudedbats_hdf5
+
+### metadata4bats
+
+Library for all kinds of metadata. Metadata for projects, surveys, recording events, recordings, analyses, etc.
+
+Status: Work in progress. I need it for the desktop application.
+Repository: cloudedbats_metadata
+
+### darwincore4bats
+
+Library for handling the DarwinCore-Archive format. This is a format for data exchange developed for biological data. 
+
+Status: Future work.
+Repository: cloudedbats_darwincore
+
 ## About the name *CloudedBats*
 
 CloudedBats is not about [*clouds* of bats](https://www.google.se/search?q=clouds+of+bats), nor funny patterned animals like the cute 
