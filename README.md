@@ -211,7 +211,10 @@ Repository: https://github.com/cloudedbats/cloudedbats_web
 
 This is a traditional application for desktop computers. Will cover all levels from project/survey to automatic processing of recorded files.
 
-Status: Work in progress. The framework for the user interface (Qt5) is finished and a small demo on how to plot a spectrogram from a wav file. It will be possible to build single file executables for Windows, macOS and Linux.
+![Desktop app](https://github.com/cloudedbats/cloudedbats_desktop_app/blob/master/images/CloudedBats-DesktopApp_2019-03-30.jpg?raw=true  "Desktop app")
+Desktop application. Items inside brackets indicates work in progress or future work. CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+
+Status: Work in progress. The framework for the user interface (Qt5) and file storage (HDF5) is finished. It is possible to build single file executables for Windows, macOS and Linux.
 
 Repository: https://github.com/cloudedbats/cloudedbats_desktop_app
 
