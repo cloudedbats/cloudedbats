@@ -4,11 +4,16 @@ Welcome to CloudedBats.
 
 Bats have became my new hobby. They are extremely fascinating mammals, and we need to know more about them. But it's hard to study bats without a lot of technical stuff. 
 
-When searching for advanced bat detectors I realised that there are many alternatives, but all of them are really expensive and without the processing capacity I was looking for. Therefore, I decided to build my own system. I have been working as a software developer for many years and this is a great opportunity to upgrade my "personal toolbox" and include things like Raspberry Pi, digital signal processing, cloud computing and machine learning. 
+When searching for advanced bat detectors I realised that there are many alternatives, but all of them are really expensive and without the processing capacity I was looking for. Therefore, I decided to build my own system. I have been working as a software developer for many years, and this is a great opportunity to upgrade my "personal toolbox" and include things like Raspberry Pi, digital signal processing, cloud computing, machine learning, etc. 
 
-I'm using the programming language Python for all software in the project and the code is divided into several GitHub repositories under the GitHub organisation https://github.com/cloudedbats 
+I'm using the programming language Python for all software in the project, and the code is divided into several GitHub repositories under the GitHub organisation https://github.com/cloudedbats 
+For people who works mainly with data, and not system development, I strongly recommend the R programming language and the RStudio to develop and run R code. 
 
 The CloudedBats software is completely open and free and you can use it as you want, even as a part in a commercial product. Personally, I have no plans to put together "products" based on the software and sell for profit. But I will be happy if someone else does, or just use the CloudedBats software as an inspiration or as a template for other projects. Contact info at the end of this page.
+
+## Disclaimer
+
+The software in this project is provided "as is", without warrant of any kind. Since it is a spare time project I always must prioritise because it is not possible to both use it as a "learning by doing" project for my own purposes, and at the same time produce a well documented and well tested system used by a large community of users who needs user support.   
 
 ## Bats
 
@@ -19,7 +24,7 @@ The most common bat species where I live is definitely the Northern bat, *Eptesi
 ![Plecotus auritus](images/Plecotus_auritus_sweden.jpg?raw=true  "*Plecotus auritus*")
 *Plecotus auritus* hibernating near our house. Potatoes, bats and the spider *Meta menardi* are enjoying the same environment during winter. CloudedBats.org / [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
-After some years of reading, recording and analysing bat sounds, following the Swedish bat Facebook group, some meetings/workshops with Swedish bat enthusiasts, joining EBRS 2017 (the 14:th European Bat Research Symposium) and the following Bat detector workshop in Bidarray and a similar workshop in Norway I think I'm prepared to dive into the more cloudy part of the project.
+To understand bats, and the sound of bats, you need to understand a lot of topics from a variety of diciplines. And to write software to be used when monitoring bats it is not enough to be a skilled software developer only. That's a challenge that I like, and bats are smart mammals that does not always behave as expected...
 
 ## Main scenario and project requirements
 
@@ -45,6 +50,14 @@ From this scenario some basic requirements can be defined:
 - Extracted metrics must be stored in formats that makes it possible to apply extensive statistical analysis.
 - High resolution wave files must be handled and stored for species identification activities.
 - Metadata for the whole survey must be stored and published together with other results.
+
+### About sharing data
+
+More and more people talks about the necessity to share data and to collaborate. For example the concept of FAIR data is discussed widely. But to make data reusable we need good metadata and also good quality stamps, both for data and metadata. If not, then our collected data probably fails to be reusable and ends up in some kind of public "junkyard for data". 
+
+If your metadata can describe at least these parts "what", "where", "when", "how", "by who" and "why", then it brobably will be possible to reuse. Quality stamps are also important, because if that part is missing a set of data will always be stamped with the lowest quality part in that set.
+
+And before you start to collect your data, take some time to think ower "what to collect", "why", and "for the benetits of whom".
  
 ## CloudedBats - software parts
 
