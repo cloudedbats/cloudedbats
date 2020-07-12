@@ -1,5 +1,25 @@
 # CloudedBats - free software for bat monitoring
 
+## Latest news (2020-07-02)
+
+After a break I'm back with a completely rewritten software for the WURB detector. The new WURB version can be found here:
+https://github.com/cloudedbats/cloudedbats_wurb_2020 
+
+The repositories in the CloudedBats GitHub organization (https://github.com/cloudedbats) contains a lot of useful code snippets 
+and some not finished applications. I will try to use what I have learned so far about bat sound and bat sound processing to develop
+a new and better bat sound processing pipeline. The first part in that new pipeline is the "data capture" part, the new WURB detector.
+
+The final goal is the same; to develop free and open source software for all parts from data capture to quality approved survey data
+stored in the DarwinCore-Archive format. And both AI and the cloud should be used for a more efficient management of recorded sound files.
+
+Another goal is to focus on bat species where reference recordings not are available. That means that AI with "supervised learning" is not 
+an option. This repository contains software used to extract and store info about all bat species covered by the IUCN Redlist: 
+https://github.com/cloudedbats/cloudedbats_species and the AI system must be able to support them all.
+
+
+
+## ===== Old texts that may be updated, some day... =====
+
 Welcome to CloudedBats.
 
 Bats have became my new hobby. They are extremely fascinating mammals, and we need to know more about them. But it's hard to study bats without a lot of technical stuff. 
