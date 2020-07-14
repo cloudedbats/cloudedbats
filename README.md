@@ -1,6 +1,6 @@
 # CloudedBats - free software for bat monitoring
 
-## Latest news (2020-07-02)
+## Latest news (2020-07-12)
 
 After a break I'm back with a completely rewritten software for the WURB detector. The new WURB version can be found here:
 https://github.com/cloudedbats/cloudedbats_wurb_2020 
