@@ -1,5 +1,16 @@
 # CloudedBats - free software for bat monitoring
 
+## Latest news (2021-01-17)
+
+There are some major updates in the CloudedBats-WURB-2020 detector (https://github.com/cloudedbats/cloudedbats_wurb_2020).
+
+- A more intuitive layout of the user interface.
+- User defined settings alternatives.
+- Better support for alternative sound cards.
+- Audio feedback via Headphones from the 3.5 mm jacket.
+
+Testing and some more additions should be done before this ends up in the v0.9 release. Please report back, all kinds of feedback are welcome.
+
 ## Latest news (2020-07-12)
 
 After a break I'm back with a completely rewritten software for the WURB detector. The new WURB version can be found here:
