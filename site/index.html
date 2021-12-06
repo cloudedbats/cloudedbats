@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CloudedBats</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://cloudedbats.org">
+                <!-- <img src="cloudedbats_logo.png" width="100px" height="200px"> -->
+                <img src="cloudedbats_logo.png" style="max-height: 100px" class="py-2 px-2">
+            </a>
+            <a role="button" id="navbar_burger_id" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbar-id">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbar-id" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item has-text-weight-bold" onclick="hideShowParts('introduction');">CloudedBats</a>
+                <a class="navbar-item" onclick="hideShowParts('bat-detectors');">Bat detectors</a>
+                <a class="navbar-item" onclick="hideShowParts('post-processing');">Post processing</a>
+                <a class="navbar-item" onclick="hideShowParts('future-plans');">Future plans</a>
+                <a class="navbar-item" onclick="hideShowParts('for-developers');">For developers</a>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item pr-6" onclick="hideShowParts('about');">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section has-background-white-ter">
+        <div class="container">
+            <section class="columns px-6">
+                <div class="column"></div>
+                <!-- <div class="column is-half"> -->
+                <!-- <div class="column is-two-thirds"> -->
+                    <!-- <div class="column is-three-fifths"> -->
+                    <div class="column is-four-fifths">
+
+                    <!-- INTRO -->
+                    <div id="div_introduction_id">
+                        <h1 class="title">
+                            Introduction
+                        </h1>
+                        <p class="subtitle mt-2">
+                            What is CloudedBats?
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                    <!-- BAT DETECTORS -->
+                    <div id="div_bat_detectors_id" style="visibility:hidden; overflow:hidden; height:0; width:0;"
+                        class="">
+                        <h1 class="title">
+                            Bat detectors
+                        </h1>
+                        <p class="subtitle mt-2">
+                            The WURB detector
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                        <p class="buttons mt-4">
+                            <button class="button">
+                              <span class="icon">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span>GitHub</span>
+                            </button>
+                        </p>
+
+                        <p class="subtitle mt-6">
+                            The Pathfinder detector
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                    <!-- POST PROCESSING -->
+                    <div id="div_post_processing_id" style="visibility:hidden; overflow:hidden; height:0; width:0;"
+                        class="">
+                        <h1 class="title">
+                            Post processing
+                        </h1>
+                        <p class="subtitle mt-2">
+                            Lorem ipsum dolor
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                    <!-- FUTURE PLANS -->
+                    <div id="div_future_plans_id" style="visibility:hidden; overflow:hidden; height:0; width:0;"
+                        class="">
+                        <h1 class="title">
+                            Future plans
+                        </h1>
+                        <p class="subtitle mt-2">
+                            Lorem ipsum dolor
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                    <!-- FOR DEVELOPERS -->
+                    <div id="div_for_developers_id" style="visibility:hidden; overflow:hidden; height:0; width:0;"
+                        class="">
+                        <h1 class="title">
+                            For developers
+                        </h1>
+                        <p class="subtitle mt-2">
+                            Lorem ipsum dolor
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                    <!-- ABOUT -->
+                    <div id="div_about_id" style="visibility:hidden; overflow:hidden; height:0; width:0;" class="">
+                        <h1 class="title">
+                            About
+                        </h1>
+                        <p class="subtitle mt-2">
+                            Lorem ipsum dolor
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repudiandae rerum
+                            ipsum voluptas! Omnis, non quo ullam quis eveniet maiores dolorem, inventore aliquid
+                            mollitia odit exercitationem ex expedita, laborum natus.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates distinctio ut ratione, nemo tenetur molestiae est vel assumenda veniam
+                            cupiditate hic sint libero mollitia autem magni nesciunt earum esse cum. Minus consectetur
+                            eius molestias. Dicta excepturi quibusdam qui fuga itaque neque aliquid dolores quas,
+                            nobis rem eligendi optio numquam a?
+                        </p>
+                    </div>
+
+                </div>
+                <div class="column">
+                    <p class="buttons mt-2">
+                        <button class="button is-light">
+                            Previous
+                        </button>
+                        <button class="button is-light">
+                            Next
+                        </button>
+                    </p>
+        </div>
+
+            </section>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer has-background-grey has-text-white py-4">
+        <div class="content has-text-centered">
+            <p class="is-size-7">
+                Arnold Andreasson, CC0 - Public domain.<br>
+                Contact: info@cloudedbats.org</p>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+
+</html>
