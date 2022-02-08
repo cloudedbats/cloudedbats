@@ -1,36 +1,33 @@
-# Rsync
+# Setup rsync
 
-Rsync is a tool that can be used to synchronise directories and files 
-between computers.
+This is a step-by-step description to be used when setting up a
+automatic backup of recorded files from a detector to a server.
 
-When running WURB bat detectors rsync can be used to backup recorded 
-files to a server in near-real-time, and the files can then be checked 
-immediately from that server. They can also be shared if the server is 
-publicly available. 
+Please also check the corresponding document:
+[About rsync](docs/about_rsync.md)
 
-In this installation rsync is running in daemon mode on the server. 
-The main reason is because in daemon mode rsync does not have to rebuild
-the lists that are used for an effective syncronisation.
+## Prerequisites
 
-On the client side, the WURB detector in this case, the backup is 
-initiated as a crontab job an runs based on what is specified there.
+The example below is for a WURB detector named "wurb1".
+Replace "wurb1", the rsync user "rsync-wurb1" and the corresponding
+password "password-for-wurb1" to match your setup.
 
-The example below is for a WURB detector named "wurb04". 
-Replace "wurb04", the rsync user "rsync-wurb04" and the corresponding 
-password "password-for-wurb04" to match your setup.
-The server and the wurb are parts of the same network, but it is possible 
-to access remote servers. The server is named "server1" and can be 
+The server and the wurb are parts of the same network, but it is possible
+to access remote servers. The server is named "server1" and can be
 accessed by using the address "server1.local".
-An external disk is mounted to the server and the files will be stored 
-in a directory called "/mnt/usb4tb/rec2021/wurb04".
+An external disk is mounted to the server and the files will be stored
+in a directory called "/mnt/usb4tb/rec2022/wurb1".
 
 If the server uses a firewall, then TCP port 873 must be open.
+If port forward is used, then port 873 must be forwarded to the server.
 
 ## Installation
 
-If rsync in not already installed it can be installed 
-with this command.
+If rsync in not already installed it can be installed
+with this install command.
 
+    sudo apt update
+    sudo apt upgrade
     sudo apt install rsync
 
 ## Configure - server side
@@ -46,44 +43,48 @@ Add the following content:
     pid file = /var/run/rsyncd.pid
     lock file = /var/run/rsync.lock
 
-    [wurb04]
-    path = /mnt/usb4tb/rec2021/wurb04
-    comment = Backup for WURB04.
+    [wurb1]
+    path = /mnt/usb4tb/rec2022/wurb1
+    comment = Backup for WURB1.
     uid = pi
     gid = pi
     read only = no
     list = yes
-    auth users = rsync-wurb04
+    auth users = rsync-wurb1
     secrets file = /etc/rsyncd.secrets
 
-A file with valid users and passwords is needed.
+A file with a valid users and passwords is needed.
 
     sudo nano /etc/rsyncd.secrets
 
-Add this row for the WURB04 user.
+Add this row for the WURB1 user. Replace the
+password for something more secure.
 
-    rsync-wurb04:password-for-wurb04
+    rsync-wurb1:password-for-wurb1
 
 Then the "/etc/rsyncd.secrets" file should be protected.
 
     sudo chmod 0640 /etc/rsyncd.secrets
 
-Finally, perform a trial run.
+Finally, perform a trial run from the client, the WURB detector.
 
-    rsync -rt --dry-run rsync://rsync-wurb04@server1.local
+    rsync -rt --dry-run rsync://rsync-wurb1@server1.local
 
 ## Commands
 
-These commands are used to control the rsync daemon.
+These commands are used to control the rsync daemon running on the
+server.
 
     # Start and stop.
     sudo systemctl start rsync
     sudo systemctl stop rsync
-    # Check status.
-    sudo systemctl status rsync
+
     # Used to activate/deactivate at startup.
     sudo systemctl enable rsync
     sudo systemctl disable rsync
+
+    # Check status.
+    sudo systemctl status rsync    
 
 ## Client side
 
@@ -99,7 +100,7 @@ Create a specific directory for the rsync parts.
     cd /home/pi/backup_rsync
     nano rsync.secrets
 
-Enter the password "password-for-wurb04" in rsync.secrets.
+Enter the password "password-for-wurb1" in rsync.secrets.
 Then change the access rights for it.
 
     chmod 600 rsync.secrets
@@ -108,7 +109,7 @@ Create a script that should be called from crontab.
 
     nano /home/pi/backup_rsync/run_rsync.sh
 
-And enter this content.
+Then enter this content.
 
     #!/bin/bash
 
@@ -126,7 +127,7 @@ And enter this content.
     echo "$now - Rsync finished."
     exit 0
 
-Then make it possible to execute the script.
+Finally make it possible to execute the script.
 
     chmod +x /home/pi/backup_rsync/run_rsync.sh 
 
@@ -142,6 +143,7 @@ Add this row at the end to run the script 10 times each hour.
 
 ## Check
 
-This is a way to check whats happening.
+This is a way to check whats happening when you are logged in to the 
+WURB detector.
 
     tail -f /home/pi/backup_rsync/backup_log.txt
