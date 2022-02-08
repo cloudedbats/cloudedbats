@@ -8,10 +8,10 @@ built in support for HTTPS.
 - **Apache** is a similar tool but more complicated to setup.
 
 - Another alternative is **nginx**.
-More info  here: [About nginx](docs/about_nginx.md)
-and here [Setup nginx](docs/setup_nginx.md).
+More info  here: [About nginx](./about_nginx.md)
+and here [Setup nginx](./setup_nginx.md).
 
 ## Next step
 
 There is a step-by-step description here:
-[Setup Caddy](docs/setup_caddy.md)
+[Setup Caddy](./setup_caddy.md)
