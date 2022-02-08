@@ -20,8 +20,8 @@ you have to pay, but then you can connect domain/subdomain names to them.
 - If you are running your own server with a public IP address, then you can
 set up a similar functionality yourself. It will work both for normal physical
 servers and for virtual servers running in the cloud.
-Descriptions can be found here: [About reverse_ssh](docs/about_reverse_ssh.md)
-and here [Setup reverse_ssh](docs/setup_reverse_ssh.md).
+Descriptions can be found here: [About reverse_ssh](./about_reverse_ssh.md)
+and here [Setup reverse_ssh](./setup_reverse_ssh.md).
 
 - Some internet providers offers a similar functionality for their customers, sometimes without an extra fee.
 
@@ -47,4 +47,4 @@ client software each time the detector/server is started.
 ## Next step
 
 There is a step-by-step description here:
-[Setup ngrok](docs/setup_ngrok.md)
+[Setup ngrok](./setup_ngrok.md)

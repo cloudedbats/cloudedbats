@@ -4,7 +4,7 @@ This is a step-by-step description to be used when setting up
 the web and proxy server nginx.
 
 Please also check the corresponding document:
-[About nginx](docs/about_nginx.md)
+[About nginx](./about_nginx.md)
 
 ## Prerequisites
 

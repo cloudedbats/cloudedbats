@@ -4,7 +4,7 @@ This is a step-by-step description to be used when connecting
 a remote computer to establish a reverse ssh tunnel.
 
 Please also check the corresponding document:
-[About reverse ssh](docs/about_reverse_ssh.md)
+[About reverse ssh](./about_reverse_ssh.md)
 
 # Create a user on the server
 

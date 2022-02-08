@@ -21,4 +21,4 @@ initiated as a crontab job an runs based on what is specified there.
 ## Next step
 
 There is a step-by-step description here:
-[Setup rsync](docs/setup_rsync.md)
+[Setup rsync](./setup_rsync.md)

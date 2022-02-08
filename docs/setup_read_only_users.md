@@ -4,7 +4,7 @@ This is a step-by-step description to be used when setting up a
 safe read-only user for SFTP use.
 
 Please also check the corresponding document:
-[About read-only-users](docs/about_read-only-users.md)
+[About read-only-users](./about_read-only-users.md)
 
 ## Prerequisites
 

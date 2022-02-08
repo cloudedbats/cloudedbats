@@ -5,7 +5,7 @@ Raspberry Pi based detector, or server, that is exposed for incoming
 calls from the internet.
 
 Please also check the corresponding document:
-[About Raspberry Pi security](docs/about_security.md)
+[About Raspberry Pi security](./about_security.md)
 
 ## Prerequisites
 

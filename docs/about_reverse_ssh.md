@@ -19,10 +19,10 @@ of ssh keys.
 
 - **Ngrok** have a commercial implementation of it without the need for your
 to have your own server.
-More about it here: [About reverse_ssh](docs/about_reverse_ssh.md)
-and here [Setup reverse_ssh](docs/setup_reverse_ssh.md).
+More about it here: [About reverse_ssh](./about_reverse_ssh.md)
+and here [Setup reverse_ssh](./setup_reverse_ssh.md).
 
 ## Next step
 
 There is a step-by-step description here:
-[Setup reverse ssh](docs/setup_reverse_ssh.md)
+[Setup reverse ssh](./setup_reverse_ssh.md)

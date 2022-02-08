@@ -5,7 +5,7 @@ detector or server for http, ssh and sftp without the need of port
 forwarding, or similar techniques, for direct access.
 
 Please also check the corresponding document:
-[About ngrok](docs/about_ngrok.md)
+[About ngrok](./about_ngrok.md)
 
 ## Prerequisites
 

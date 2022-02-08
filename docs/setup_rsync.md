@@ -4,7 +4,7 @@ This is a step-by-step description to be used when setting up a
 automatic backup of recorded files from a detector to a server.
 
 Please also check the corresponding document:
-[About rsync](docs/about_rsync.md)
+[About rsync](./about_rsync.md)
 
 ## Prerequisites
 

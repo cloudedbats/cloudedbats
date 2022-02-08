@@ -81,4 +81,4 @@ recommended to use:
 ## Next step
 
 There is a step-by-step description here:
-[Setup Raspberry Pi security](docs/setup_security.md)
+[Setup Raspberry Pi security](./setup_security.md)

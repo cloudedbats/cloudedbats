@@ -37,4 +37,4 @@ The host can be replaced with an IP number if DNS is not used.
 ## Next step
 
 There is a step-by-step description here:
-[Setup read-only-users](docs/setup_read_only_users.md)
+[Setup read-only-users](./setup_read_only_users.md)
