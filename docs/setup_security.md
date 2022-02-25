@@ -96,7 +96,9 @@ connected to the Raspberry Pi to fix the error, or reinstall from scratch.
 
     # Allow ports. Select the ones you are planning to use.
     sudo ufw allow 22 # For SSH.
-    sudo ufw allow 80 # For HTTP.
+    sudo ufw allow 80 # For HTTP, RaspAP or Wurb with nginx.
+    sudo ufw allow 8000 # For HTTP, Wurb default.
+    sudo ufw allow 8080 # For HTTP, Alternativ for RaspAP if 80 is used for the Wurb.
     sudo ufw allow 443 # For HTTPS.
     sudo ufw allow 873 # For Rsync.
 
