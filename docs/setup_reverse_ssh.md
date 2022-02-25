@@ -25,6 +25,9 @@ Copy the public key from the detector to the server
     # And then copy the public key to the server.
     # Use the user account without sudo/root privileges.
     ssh-copy-id reverse-ssh-user@server1.example.org
+    
+    # Log in and add to the list of known hosts.
+    ssh reverse-ssh-user@server1.example.org
 
 Now you can disable normal password login again.
 
@@ -81,4 +84,10 @@ Then reload and enable the service.
 
 ## Test, login from server
 
+    # Log in and add to the list of known hosts for the first time.
     ssh -l pi -p 51022 localhost
+    
+    # Command to return.
+    exit
+    
+
