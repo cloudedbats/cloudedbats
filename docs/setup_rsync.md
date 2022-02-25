@@ -14,7 +14,8 @@ password "password-for-wurb1" to match your setup.
 
 The server and the wurb are parts of the same network, but it is possible
 to access remote servers. The server is named "server1" and can be
-accessed by using the address "server1.local".
+accessed by using the address "server1.local". Replace this with  
+a domain or subdomain name if the backup server is accessed ofer internet.
 An external disk is mounted to the server and the files will be stored
 in a directory called "/mnt/usb4tb/rec2022/wurb1".
 
@@ -31,6 +32,10 @@ with this install command.
     sudo apt install rsync
 
 ## Configure - server side
+
+Create the target directory. 
+
+    mkdir /mnt/usb4tb/rec2022/wurb1
 
 The rsync daemon is configured in /etc/rsyncd.conf
 
@@ -66,10 +71,6 @@ Then the "/etc/rsyncd.secrets" file should be protected.
 
     sudo chmod 0640 /etc/rsyncd.secrets
 
-Finally, perform a trial run from the client, the WURB detector.
-
-    rsync -rt --dry-run rsync://rsync-wurb1@server1.local
-
 ## Commands
 
 These commands are used to control the rsync daemon running on the
@@ -98,6 +99,7 @@ Create a specific directory for the rsync parts.
 
     mkdir /home/pi/backup_rsync
     cd /home/pi/backup_rsync
+    
     nano rsync.secrets
 
 Enter the password "password-for-wurb1" in rsync.secrets.
@@ -139,9 +141,13 @@ Edit crontab.
 
 Add this row at the end to run the script 10 times each hour.
 
-    */10 * * * * /home/pi/backup_rsync/autosync.sh > /home/pi/backup_rsync/backup_log.txt 2>>&1
+    */10 * * * * /home/pi/backup_rsync/run_rsync.sh  > /home/pi/backup_rsync/backup_log.txt 2>&
 
 ## Check
+
+Perform a trial run from the client, the WURB detector in this case.
+
+    rsync -rt --dry-run rsync://rsync-wurb1@server1.local
 
 This is a way to check whats happening when you are logged in to the 
 WURB detector.
