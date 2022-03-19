@@ -52,7 +52,7 @@ of keychain on your client computer.
 
 Send the public key to the detector.
 
-    ssh-copy-id pi@wwurb1.localhost
+    ssh-copy-id pi@wurb1.local
 
     # Then login to the Raspberry Pi detector for test. 
     # You may enter the ssh-key password.
