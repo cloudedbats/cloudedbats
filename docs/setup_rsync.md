@@ -141,7 +141,7 @@ Edit crontab.
 
 Add this row at the end to run the script 10 times each hour.
 
-    */10 * * * * /home/pi/backup_rsync/run_rsync.sh  > /home/pi/backup_rsync/backup_log.txt 2>&
+    */10 * * * * /home/pi/backup_rsync/run_rsync.sh  > /home/pi/backup_rsync/backup_log.txt 2>&1
 
 ## Check
 
